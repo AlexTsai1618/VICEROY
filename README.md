@@ -35,7 +35,7 @@ This repository is the official implementation of [VICEROY](https://arxiv.org/ab
 
 To install requirements:
 
-Step 0 Create an empty Folder call VFL and open it with Visual Studio Code
+Step 0 Create an empty folder call VFL and open it with Visual Studio Code
 
 Step 1 Clone the repository
 ```clone the repository 
@@ -47,17 +47,22 @@ Step 2 launch docker
 Step 3 Launch devcontainer
 
 * Step 3-1
+
 Go to the bottom left side and click it
-    ![](./img/Step1.png)
+
+![](/img/Step1.png)
 
 * Step 3-2
+
 Select the Reopen in Container to launch the devcontainer
 
-    ![](./img/Step2.png)
+![](./img/Step2.png)
 
 * Result
+
 Check whether the devcontainer is successfully
-    ![](./img/Result.png)
+
+![](./img/Result.png)
 
 >📋  Describe how to set up the environment, e.g. pip/conda/docker commands, download datasets, etc...
 
