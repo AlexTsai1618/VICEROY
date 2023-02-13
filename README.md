@@ -1,4 +1,5 @@
-# Todos
+# Execution flow (torch_vertical_FL_train.py)
+![](./pictures/VFL_code_flowchart.png)
 
 
 # Credit
@@ -57,3 +58,9 @@ Get Started
     python tf_vertical_FL_train.py --epochs 100 --model_type 'vertical' --organization_num 3
     python torch_vertical_FL_train.py --epochs 100 --model_type 'vertical' --organization_num 3
     
+
+## ToDos
+
+- [ ] Ashely make sure the code can work and know the execution flow
+- [ ] Adrian make sure the code can work and know the execution flow
+- [ ] Adrain upload the Differential privacy into your branch please
