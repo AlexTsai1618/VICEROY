@@ -33,7 +33,7 @@ Prerequisites
     Python 3.8
     Torch 1.8.0 or Tensorflow 2.3.0
 ### Step 1 install pipenv virtual environment manager
-    pip3 insatll pipenv
+    pip3 install pipenv
 
 ### Step 2 install the requirments library with pipenv
     pipenv install -r requirements.txt
