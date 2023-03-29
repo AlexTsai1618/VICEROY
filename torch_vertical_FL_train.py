@@ -19,6 +19,17 @@ from sklearn.metrics import accuracy_score, roc_auc_score
 # https://imbalanced-learn.org/stable/
 from avazudataset import AvazuDataset
 from utils import load_dat, batch_split, create_avazu_dataset
+from captum.attr import IntegratedGradients, ShapleyValueSampling, GradientShap, Occlusion, FeatureAblation, InputXGradient,\
+    KernelShap
+# from captum.attr import IntegratedGradients, LayerConductance, LayerIntegratedGradients, \
+#     NeuronConductance, NeuronIntegratedGradients, Saliency, DeepLift, DeepLiftShap, \
+#     FeatureAblation, FeaturePermutation, GradientShap, GuidedBackprop, GuidedGradCam, \
+#     InputXGradient, Occlusion, ShapleyValueSampling, SigmoidGrad, SmoothGrad, \
+#     Deconvolution, GradientShap, GuidedBackprop, GuidedGradCam, InputXGradient, \
+#     LayerConductance, LayerIntegratedGradients, NeuronConductance, NeuronIntegratedGradients, \
+#     Saliency, DeepLift, DeepLiftShap, FeatureAblation, FeaturePermutation, GradientShap
+        
+
 """
 Reference
     https://www.kaggle.com/c/avazu-ctr-prediction
@@ -61,8 +72,25 @@ def main(args):
             # y = X['income'].values.astype('int')
             y = X['income'].apply(lambda x: bool(">" in x)).astype("int")
             X = X.drop(['income'], axis=1)
-                       
+            # Generate an array of random categories
+            noisy_categories = np.random.choice(['A', 'B', 'C'], size=[X.shape[0], 4])
+            
+            # Convert the 2D array to a 1D array
+            noisy_categories_flat = noisy_categories.flatten()
+            
+            # Convert the categories into a categorical data type
+            noisy_categories_lst = pd.Categorical(noisy_categories_flat)
+
+            # Reshape the 1D array back to a 2D array
+            noisy_categories_2d = noisy_categories_lst.codes.reshape(-1, 4)
+
+            # print('noisy_categories_lst: ', noisy_categories_2d)
+            # Add the categories to the DataFrame
+            X = pd.concat([X.reset_index(drop=True), pd.DataFrame(noisy_categories_2d)], axis=1)
             N, dim = X.shape
+                       
+            #add 6 more random value columns to the dataset
+            # X = pd.concat([X, pd.DataFrame(np.random.randn(N, 7))], axis=1)
                
              # Print out the dataset settings
             print("\n\n=================================")
@@ -177,9 +205,13 @@ def main(args):
                 X[attribute_groups[organization_idx]].values#.astype('float32')
             encoded_vertical_splitted_data[organization_idx] = \
                 chy_one_hot_enc.fit_transform(vertical_splitted_data[organization_idx])
+            
             print(vertical_splitted_data)
-            print('The shape of the encoded dataset held by Organization {0}: {1}'.format(organization_idx, np.shape(encoded_vertical_splitted_data[organization_idx])))                       
-        
+            print('vertical split data for organization {0}: {1}'.format(organization_idx, vertical_splitted_data[organization_idx]))
+            print('encoded vertical split data for organization {0}: {1}'.format(organization_idx, encoded_vertical_splitted_data[organization_idx]))
+            print('The shape of the encoded dataset held by Organization {0}: {1}'.format(organization_idx, np.shape(encoded_vertical_splitted_data[organization_idx]))) 
+        print('X shape:',X.shape)
+        print('attribute groups:',attribute_groups)
         # set up the random seed for dataset split
         random_seed = 1001
         
@@ -233,7 +265,7 @@ def main(args):
              
         # build the top model over the client models
         top_model = torch_top_model(sum(organization_output_dim), top_hidden_units, top_output_dim)
-    
+
         # define the neural network optimizer
         optimizer = torch.optim.Adam(top_model.parameters(), lr=0.002)
         
@@ -251,6 +283,8 @@ def main(args):
         criterion = nn.BCELoss()
     
         top_model.train()
+        
+        attr_lst = []
         for i in range(epochs):
             
             batch_idxs_list = batch_split(len(X_train_vertical_FL[0]), args.batch_size, args.batch_type)
@@ -275,8 +309,10 @@ def main(args):
                                         organization_outputs[organization_idx]), 1)
                     
                 outputs = top_model(organization_outputs_cat)
-                logits = torch.sigmoid(outputs)
-                logits = torch.reshape(logits, shape=[len(logits)])
+                # logits = torch.sigmoid(outputs)
+                logits = torch.reshape(outputs, shape=[len(outputs)])
+                # print('logits: ',logits)
+                # print('y_train[batch_idxs]: ',y_train[batch_idxs])
                 loss = criterion(logits, y_train[batch_idxs]) 
                 loss.backward()  # backpropagate the loss
                 optimizer.step() # adjust parameters based on the calculated gradients 
@@ -286,30 +322,100 @@ def main(args):
                     optimizer_organization_list[organization_idx].step()
    
             # let the program report the simulation progress
+            
             if (i+1)%1 == 0:
                 organization_outputs_for_test = {}
+                feature_mask_tensor = None
+                feature_mask_tensor_list = []
                 for organization_idx in range(organization_num):
                     organization_outputs_for_test[organization_idx] = \
                         organization_models[organization_idx](X_test_vertical_FL[organization_idx])
-            
+                    #add torch tensors of organization_outputs_for_test[organization_idx] shape with constant value to feature_mask_tensor
+                    feature_mask_tensor_list.append(torch.full(organization_outputs_for_test[organization_idx].shape, organization_idx))
+                feature_mask_tensor = torch.stack(feature_mask_tensor_list, dim=0)
+                # print('feature_mask_tensor shape: ', feature_mask_tensor.shape)
                 organization_outputs_for_test_cat = organization_outputs_for_test[0]
                 if len(organization_outputs_for_test) >= 2:
                     
                     for organization_idx in range(1, organization_num):
                         organization_outputs_for_test_cat = torch.cat((organization_outputs_for_test_cat,\
                                         organization_outputs_for_test[organization_idx]), 1)
+                        # print('organization outputs shape: ', organization_outputs_for_test[organization_idx].shape)
+                        
+                        # print('organization outputs shape cat: ', organization_outputs_for_test_cat.shape)
                     
                 outputs = top_model(organization_outputs_for_test_cat)
-                log_probs = torch.sigmoid(outputs)
-                log_probs = torch.reshape(log_probs, shape=[len(log_probs)])
-                # pre = torch.argmax(log_probs, axis=1)
-                # acc = accuracy_score(y_test, pre)
+                # print('outputs shape: ', outputs)
+                # log_probs = torch.sigmoid(outputs)
+                log_probs = torch.reshape(outputs, shape=[len(outputs)])
+                
                 auc = roc_auc_score(y_test, log_probs.data)
+                
+                
                 print('For the {0}-th epoch, train loss: {1}, test auc: {2}'.format(i+1, loss.detach().numpy(), auc))
                 
                 test_epoch_array.append(i+1)
                 loss_array.append(loss.detach().numpy())
                 auc_array.append(auc)
+                
+                contribution_method = 'ig'
+                
+                if contribution_method == 'ig':
+                    # create an instance of the attribution method
+                    ig = IntegratedGradients(top_model)
+                    X_example = organization_outputs_for_test_cat
+                    attr, delta = ig.attribute(X_example, baselines=torch.zeros_like(X_example), return_convergence_delta=True, n_steps=10)
+                    
+                elif contribution_method == 'sv':
+                    sv = ShapleyValueSampling(top_model)
+                    X_example = organization_outputs_for_test_cat
+                    attr = sv.attribute(X_example)
+                    
+                elif contribution_method == 'gsv':
+                    gradient_shap = GradientShap(top_model)
+                    X_example = organization_outputs_for_test_cat
+                    attr = gradient_shap.attribute(X_example)
+                    
+                elif contribution_method == 'inputGrad':
+                    input_x_gradient = InputXGradient(top_model)
+                    X_example = organization_outputs_for_test_cat
+                    attr = input_x_gradient.attribute(X_example)
+                    
+                elif contribution_method == 'fa':
+                    ablator = FeatureAblation(top_model)
+                    X_example = organization_outputs_for_test_cat
+                    attr = ablator.attribute(X_example)
+                    
+                elif contribution_method == 'ks':
+                    ks = KernelShap(top_model)
+                    X_example = organization_outputs_for_test_cat
+                    attr = ks.attribute(X_example)
+                    
+                # print the attribution scores for each organization
+                
+                # print('attr shape: ', attr.shape)
+                # print('attr type: ', type(attr))
+                # # Compute mean attribution along the first axis (axis=0)
+                # feature_attributions = attr.mean(axis=0)
+
+                # # Print feature-wise attribution values
+                # for i, attribution in enumerate(feature_attributions):
+                #     print(f"Feature {i}: {attribution}")
+                
+                temp_attr_lst = []
+                for organization_idx in range(organization_num):
+                    organization_attr = attr[:, organization_idx*organization_output_dim[organization_idx]:(organization_idx+1)*organization_output_dim[organization_idx]]
+                    print('Organization ', organization_idx,' contribution: ', '{:.8f}'.format(organization_attr.mean()))
+                    temp_attr_lst.append(organization_attr.mean())
+                attr_lst.append(temp_attr_lst)
+                print('type of attr_lst: ', type(attr_lst[0]))
+                #take mean along the first axis
+                # print('attributions across epochs: ', np.array([attr.detach().numpy() for attr in attr_lst]).mean(axis=1))
+        print('attributions across epochs: ', attr_lst)
+                    
+                    
+
+                
  
     elif model_type == 'centralized':
         
