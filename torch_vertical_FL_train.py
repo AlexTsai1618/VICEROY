@@ -72,21 +72,25 @@ def main(args):
             # y = X['income'].values.astype('int')
             y = X['income'].apply(lambda x: bool(">" in x)).astype("int")
             X = X.drop(['income'], axis=1)
+            print(X)
+            
+            X = X.drop(['native-country'], axis=1)
+            if args.attack != "originial":
             # Generate an array of random categories
-            noisy_categories = np.random.choice(['A', 'B', 'C'], size=[X.shape[0], 4])
-            
-            # Convert the 2D array to a 1D array
-            noisy_categories_flat = noisy_categories.flatten()
-            
-            # Convert the categories into a categorical data type
-            noisy_categories_lst = pd.Categorical(noisy_categories_flat)
+              noisy_categories = np.random.choice(['A', 'B', 'C'], size=[X.shape[0], 3])
+              
+              # Convert the 2D array to a 1D array
+              noisy_categories_flat = noisy_categories.flatten()
+              
+              # Convert the categories into a categorical data type
+              noisy_categories_lst = pd.Categorical(noisy_categories_flat)
 
-            # Reshape the 1D array back to a 2D array
-            noisy_categories_2d = noisy_categories_lst.codes.reshape(-1, 4)
+              # Reshape the 1D array back to a 2D array
+              noisy_categories_2d = noisy_categories_lst.codes.reshape(-1, 3)
 
-            # print('noisy_categories_lst: ', noisy_categories_2d)
-            # Add the categories to the DataFrame
-            X = pd.concat([X.reset_index(drop=True), pd.DataFrame(noisy_categories_2d)], axis=1)
+              # print('noisy_categories_lst: ', noisy_categories_2d)
+              # Add the categories to the DataFrame
+              X = pd.concat([X.reset_index(drop=True), pd.DataFrame(noisy_categories_2d)], axis=1)
             N, dim = X.shape
                        
             #add 6 more random value columns to the dataset
@@ -283,7 +287,7 @@ def main(args):
         criterion = nn.BCELoss()
     
         top_model.train()
-        
+        org_contributions = {i: [] for i in range(organization_num)}
         attr_lst = []
         for i in range(epochs):
             
@@ -358,7 +362,7 @@ def main(args):
                 loss_array.append(loss.detach().numpy())
                 auc_array.append(auc)
                 
-                contribution_method = 'ig'
+                contribution_method = args.contribution_schem
                 
                 if contribution_method == 'ig':
                     # create an instance of the attribution method
@@ -402,17 +406,52 @@ def main(args):
                 # for i, attribution in enumerate(feature_attributions):
                 #     print(f"Feature {i}: {attribution}")
                 
+        #         temp_attr_lst = []
+        #         for organization_idx in range(organization_num):
+        #             organization_attr = attr[:, organization_idx*organization_output_dim[organization_idx]:(organization_idx+1)*organization_output_dim[organization_idx]]
+        #             print('Organization ', organization_idx,' contribution: ', '{:.8f}'.format(organization_attr.mean()))
+        #             temp_attr_lst.append(organization_attr.mean())
+        #         attr_lst.append(temp_attr_lst)
+        #         print('type of attr_lst: ', type(attr_lst[0]))
+        #         #take mean along the first axis
+        #         # print('attributions across epochs: ', np.array([attr.detach().numpy() for attr in attr_lst]).mean(axis=1))
+        # print('attributions across epochs: ', attr_lst)
                 temp_attr_lst = []
                 for organization_idx in range(organization_num):
                     organization_attr = attr[:, organization_idx*organization_output_dim[organization_idx]:(organization_idx+1)*organization_output_dim[organization_idx]]
+                    org_contributions[organization_idx].append(organization_attr.mean())
                     print('Organization ', organization_idx,' contribution: ', '{:.8f}'.format(organization_attr.mean()))
                     temp_attr_lst.append(organization_attr.mean())
                 attr_lst.append(temp_attr_lst)
+                
                 print('type of attr_lst: ', type(attr_lst[0]))
-                #take mean along the first axis
-                # print('attributions across epochs: ', np.array([attr.detach().numpy() for attr in attr_lst]).mean(axis=1))
-        print('attributions across epochs: ', attr_lst)
-                    
+
+        fig, ax = plt.subplots()
+        contributions_per_epoch = []
+
+        for organization_idx in range(organization_num):
+            org_contributions_tensor = torch.tensor(org_contributions[organization_idx])
+            org_contributions_np = org_contributions_tensor.detach().numpy()
+            contributions_per_epoch.append(org_contributions_np)
+
+        total_contributions_per_epoch = np.sum(contributions_per_epoch, axis=0)
+        for organization_idx in range(organization_num):
+            # Normalize the contributions for each organization by dividing the contributions by the sum of contributions for each epoch
+            normalized_contributions = (contributions_per_epoch[organization_idx] - np.min(total_contributions_per_epoch)) / (np.max(total_contributions_per_epoch) - np.min(total_contributions_per_epoch))
+
+            ax.plot(normalized_contributions, label=f"Org {organization_idx}")
+            print('Organization', organization_idx, 'contribution:', torch.tensor(contributions_per_epoch[organization_idx]))
+        
+        ax.legend()
+        ax.set_xlabel('Epoch')
+        ax.set_ylabel('Contribution')
+
+        # Save the plot as a PNG image file
+        plt.savefig(f'{args.contribution_schem}_{args.attack}.png')
+
+        print(org_contributions)
+        print('attributions across epochs:', attr_lst)
+                   
                     
 
                 
@@ -495,7 +534,8 @@ if __name__ == "__main__":
     parser.add_argument('--data_type', default='original', help='define the data options: original or one-hot encoded')
     parser.add_argument('--model_type', default='centralized', help='define the learning methods: vrtical or centralized')    
     parser.add_argument('--organization_num', type=int, default='2', help='number of origanizations, if we use vertical FL')
-
+    parser.add_argument('--contribution_schem',  type=str, default='ig',help='define the contribution evaluation method')
+    parser.add_argument('--attack', default='original', help='define the data attack or not')
     args = parser.parse_args()
 
     start_time = time.time()
