@@ -74,7 +74,6 @@ def main(args):
             X = X.drop(['income'], axis=1)
             print(X)
             
-            X = X.drop(['native-country'], axis=1)
             if args.attack != "originial":
             # Generate an array of random categories
               noisy_categories = np.random.choice(['A', 'B', 'C'], size=[X.shape[0], 3])
