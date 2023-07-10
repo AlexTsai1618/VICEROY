@@ -471,8 +471,8 @@ def main(args):
                     # print('HERE: ', type(temp_attr_lst), type(organization_attr.mean()))
                 attr_lst.append(temp_attr_lst)
                 sorted_org_idx = np.argsort(np.array(temp_attr_lst))
-                token_distribution(sorted_org_idx, avaialble_tokens, organization_tokens)
-                print('tokens per organization: ', organization_tokens)
+                # token_distribution(sorted_org_idx, avaialble_tokens, organization_tokens)
+                # print('tokens per organization: ', organization_tokens)
                 #take mean along the first axis
                 # print('attributions across epochs: ', np.array([attr.detach().numpy() for attr in attr_lst]).mean(axis=1))
         print('attributions across epochs: ', attr_lst)
