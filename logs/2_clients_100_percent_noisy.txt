@@ -1,0 +1,2296 @@
+
+
+=================================
+
+Dataset: ADULT 
+Number of attributes: 24 
+Number of labels: 1 
+Number of rows: 32561 
+Postive ratio: 0.2408095574460244
+(2,)
+attribute_split_array:  [12 12]
+
+The current vertical FL has a non-configurable structure.
+Reconfigurable vertical FL can be achieved by simply changing the attribute group split!
+Ming revised the codes on 12/11/2021 to realize re-configurable vertical FL.
+
+There are 2 participant organizations:
+The attributes held by Organization 0: ['age', 'workclass', 'fnlwgt', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'capital-gain', 'capital-loss', 'hours-per-week', 'native-country']
+The attributes held by Organization 1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+{0: array([['State-gov', 77516, 'Bachelors', ..., 0, 40, 'United-States'],
+       ['Self-emp-not-inc', 83311, 'Bachelors', ..., 0, 13,
+        'United-States'],
+       ['Private', 215646, 'HS-grad', ..., 0, 40, 'United-States'],
+       ...,
+       ['Private', 151910, 'HS-grad', ..., 0, 40, 'United-States'],
+       ['Private', 201490, 'HS-grad', ..., 0, 20, 'United-States'],
+       ['Self-emp-inc', 287927, 'HS-grad', ..., 0, 40, 'United-States']],
+      dtype=object)}
+vertical split data for organization 0: [['State-gov' 77516 'Bachelors' ... 0 40 'United-States']
+ ['Self-emp-not-inc' 83311 'Bachelors' ... 0 13 'United-States']
+ ['Private' 215646 'HS-grad' ... 0 40 'United-States']
+ ...
+ ['Private' 151910 'HS-grad' ... 0 40 'United-States']
+ ['Private' 201490 'HS-grad' ... 0 20 'United-States']
+ ['Self-emp-inc' 287927 'HS-grad' ... 0 40 'United-States']]
+encoded vertical split data for organization 0: [[0. 0. 0. ... 1. 0. 0.]
+ [0. 0. 0. ... 1. 0. 0.]
+ [0. 0. 0. ... 1. 0. 0.]
+ ...
+ [0. 0. 0. ... 1. 0. 0.]
+ [0. 0. 0. ... 1. 0. 0.]
+ [0. 0. 0. ... 1. 0. 0.]]
+The shape of the encoded dataset held by Organization 0: (32561, 22055)
+{0: array([['State-gov', 77516, 'Bachelors', ..., 0, 40, 'United-States'],
+       ['Self-emp-not-inc', 83311, 'Bachelors', ..., 0, 13,
+        'United-States'],
+       ['Private', 215646, 'HS-grad', ..., 0, 40, 'United-States'],
+       ...,
+       ['Private', 151910, 'HS-grad', ..., 0, 40, 'United-States'],
+       ['Private', 201490, 'HS-grad', ..., 0, 20, 'United-States'],
+       ['Self-emp-inc', 287927, 'HS-grad', ..., 0, 40, 'United-States']],
+      dtype=object), 1: array([[3, 3, 4, ..., 2, 2, 0],
+       [1, 1, 0, ..., 1, 0, 4],
+       [0, 2, 0, ..., 0, 2, 3],
+       ...,
+       [2, 3, 0, ..., 3, 4, 4],
+       [0, 3, 3, ..., 1, 4, 1],
+       [3, 4, 4, ..., 2, 3, 1]], dtype=int8)}
+vertical split data for organization 1: [[3 3 4 ... 2 2 0]
+ [1 1 0 ... 1 0 4]
+ [0 2 0 ... 0 2 3]
+ ...
+ [2 3 0 ... 3 4 4]
+ [0 3 3 ... 1 4 1]
+ [3 4 4 ... 2 3 1]]
+encoded vertical split data for organization 1: [[0. 0. 0. ... 0. 0. 0.]
+ [0. 1. 0. ... 0. 0. 1.]
+ [1. 0. 0. ... 0. 1. 0.]
+ ...
+ [0. 0. 1. ... 0. 0. 1.]
+ [1. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]]
+The shape of the encoded dataset held by Organization 1: (32561, 65)
+X shape: (32561, 25)
+attribute groups: [['age', 'workclass', 'fnlwgt', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'capital-gain', 'capital-loss', 'hours-per-week', 'native-country'], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]
+{0: array([[0., 0., 0., ..., 1., 0., 0.],
+       [0., 0., 0., ..., 1., 0., 0.],
+       [0., 0., 0., ..., 1., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 1., 0., 0.],
+       [0., 0., 0., ..., 1., 0., 0.],
+       [0., 0., 0., ..., 1., 0., 0.]])} {0: array([[0., 0., 0., ..., 1., 0., 0.],
+       [0., 0., 1., ..., 1., 0., 0.],
+       [0., 0., 0., ..., 1., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 1., 0., 0.],
+       [1., 0., 0., ..., 1., 0., 0.],
+       [0., 0., 0., ..., 1., 0., 0.]])}
+
+Start vertical FL......
+
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.9604e-02],
+        [0.0000e+00, 5.4277e-01],
+        [0.0000e+00, 4.3072e-02],
+        ...,
+        [0.0000e+00, 5.0397e-04],
+        [0.0000e+00, 8.8432e-02],
+        [0.0000e+00, 4.5303e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.9604e-02, 5.4277e-01, 4.3072e-02,  ..., 5.0397e-04, 8.8432e-02,
+        4.5303e-03], grad_fn=<SelectBackward0>)
+epoch: 1, train loss: 0.2663916051387787, test auc: 0.915146269430197 test acc: 0.8590511285122063
+X_example shape:  1599
+Organization  0  contribution:  0.00231957
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00042423
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: 47, 1: 47}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.7235e-02],
+        [0.0000e+00, 6.0279e-01],
+        [0.0000e+00, 2.1334e-04],
+        ...,
+        [0.0000e+00, 1.3151e-04],
+        [0.0000e+00, 1.8868e-03],
+        [0.0000e+00, 3.5665e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.7235e-02, 6.0279e-01, 2.1334e-04,  ..., 1.3151e-04, 1.8868e-03,
+        3.5665e-03], grad_fn=<SelectBackward0>)
+epoch: 2, train loss: 0.2192910760641098, test auc: 0.892142474068678 test acc: 0.852141870105942
+X_example shape:  1599
+Organization  0  contribution:  0.00113362
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00025746
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -6, 1: -6}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.7856e-02],
+        [0.0000e+00, 4.9701e-01],
+        [0.0000e+00, 3.0076e-04],
+        ...,
+        [0.0000e+00, 1.1483e-04],
+        [0.0000e+00, 1.2272e-03],
+        [0.0000e+00, 1.4054e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.7856e-02, 4.9701e-01, 3.0076e-04,  ..., 1.1483e-04, 1.2272e-03,
+        1.4054e-03], grad_fn=<SelectBackward0>)
+epoch: 3, train loss: 0.2424900084733963, test auc: 0.8811067560285821 test acc: 0.8453861507753724
+X_example shape:  1599
+Organization  0  contribution:  0.00114442
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00007096
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -59, 1: -59}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 4.3639e-02],
+        [0.0000e+00, 9.4121e-01],
+        [0.0000e+00, 1.6882e-04],
+        ...,
+        [0.0000e+00, 1.7166e-04],
+        [0.0000e+00, 1.6862e-03],
+        [0.0000e+00, 5.4057e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([4.3639e-02, 9.4121e-01, 1.6882e-04,  ..., 1.7166e-04, 1.6862e-03,
+        5.4057e-03], grad_fn=<SelectBackward0>)
+epoch: 4, train loss: 0.10786721110343933, test auc: 0.8827295397026479 test acc: 0.8258866881621373
+X_example shape:  1599
+Organization  0  contribution:  0.00313410
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00010736
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -112, 1: -112}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.0082e-02],
+        [0.0000e+00, 7.8642e-01],
+        [0.0000e+00, 7.6897e-05],
+        ...,
+        [0.0000e+00, 3.0806e-05],
+        [0.0000e+00, 1.1483e-03],
+        [0.0000e+00, 4.9207e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.0082e-02, 7.8642e-01, 7.6897e-05,  ..., 3.0806e-05, 1.1483e-03,
+        4.9207e-03], grad_fn=<SelectBackward0>)
+epoch: 5, train loss: 0.1943487673997879, test auc: 0.8814555953392724 test acc: 0.8355596499309074
+X_example shape:  1599
+Organization  0  contribution:  0.00247065
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00002775
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -165, 1: -165}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.4008e-02],
+        [0.0000e+00, 6.2726e-01],
+        [0.0000e+00, 8.2305e-05],
+        ...,
+        [0.0000e+00, 1.0709e-04],
+        [0.0000e+00, 1.8049e-03],
+        [0.0000e+00, 4.6995e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.4008e-02, 6.2726e-01, 8.2305e-05,  ..., 1.0709e-04, 1.8049e-03,
+        4.6995e-03], grad_fn=<SelectBackward0>)
+epoch: 6, train loss: 0.042370717972517014, test auc: 0.8846516557585976 test acc: 0.8311070167357593
+X_example shape:  1599
+Organization  0  contribution:  0.00273265
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00003953
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -218, 1: -218}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.2892e-03],
+        [0.0000e+00, 7.4600e-01],
+        [0.0000e+00, 5.6769e-05],
+        ...,
+        [0.0000e+00, 1.9212e-04],
+        [0.0000e+00, 3.6596e-04],
+        [0.0000e+00, 1.3528e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.2892e-03, 7.4600e-01, 5.6769e-05,  ..., 1.9212e-04, 3.6596e-04,
+        1.3528e-02], grad_fn=<SelectBackward0>)
+epoch: 7, train loss: 0.02807176113128662, test auc: 0.8742662093193674 test acc: 0.8343313373253493
+X_example shape:  1599
+Organization  0  contribution:  0.00201261
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00000607
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -271, 1: -271}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.0183e-02],
+        [0.0000e+00, 8.8712e-01],
+        [0.0000e+00, 1.0472e-04],
+        ...,
+        [0.0000e+00, 2.0209e-04],
+        [0.0000e+00, 1.0329e-03],
+        [0.0000e+00, 5.3028e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.0183e-02, 8.8712e-01, 1.0472e-04,  ..., 2.0209e-04, 1.0329e-03,
+        5.3028e-03], grad_fn=<SelectBackward0>)
+epoch: 8, train loss: 0.10421063750982285, test auc: 0.8776253626159818 test acc: 0.8243512974051896
+X_example shape:  1599
+Organization  0  contribution:  0.00303640
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00003489
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -324, 1: -324}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.3051e-02],
+        [0.0000e+00, 7.9510e-01],
+        [0.0000e+00, 4.5666e-05],
+        ...,
+        [0.0000e+00, 3.0807e-04],
+        [0.0000e+00, 5.7629e-04],
+        [0.0000e+00, 6.1589e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.3051e-02, 7.9510e-01, 4.5666e-05,  ..., 3.0807e-04, 5.7629e-04,
+        6.1589e-03], grad_fn=<SelectBackward0>)
+epoch: 9, train loss: 0.050166163593530655, test auc: 0.8792204656807534 test acc: 0.8291110087517273
+X_example shape:  1599
+Organization  0  contribution:  0.00277500
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00003494
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -377, 1: -377}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.5990e-03],
+        [0.0000e+00, 6.3089e-01],
+        [0.0000e+00, 3.4633e-05],
+        ...,
+        [0.0000e+00, 9.8337e-05],
+        [0.0000e+00, 1.0674e-04],
+        [0.0000e+00, 3.9371e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.5990e-03, 6.3089e-01, 3.4633e-05,  ..., 9.8337e-05, 1.0674e-04,
+        3.9371e-03], grad_fn=<SelectBackward0>)
+epoch: 10, train loss: 0.21577876806259155, test auc: 0.8775944366938738 test acc: 0.8357131890066022
+X_example shape:  1599
+Organization  0  contribution:  0.00202418
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00003026
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -430, 1: -430}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.6623e-02],
+        [0.0000e+00, 8.7331e-01],
+        [0.0000e+00, 8.1640e-05],
+        ...,
+        [0.0000e+00, 5.3338e-05],
+        [0.0000e+00, 1.4069e-03],
+        [0.0000e+00, 6.0099e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.6623e-02, 8.7331e-01, 8.1640e-05,  ..., 5.3338e-05, 1.4069e-03,
+        6.0099e-03], grad_fn=<SelectBackward0>)
+epoch: 11, train loss: 0.12861716747283936, test auc: 0.8793438512012621 test acc: 0.8274220789190849
+X_example shape:  1599
+Organization  0  contribution:  0.00300267
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00002586
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -483, 1: -483}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 8.5845e-03],
+        [0.0000e+00, 7.6143e-01],
+        [0.0000e+00, 3.4409e-05],
+        ...,
+        [0.0000e+00, 6.7158e-05],
+        [0.0000e+00, 4.0476e-04],
+        [0.0000e+00, 6.4606e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([8.5845e-03, 7.6143e-01, 3.4409e-05,  ..., 6.7158e-05, 4.0476e-04,
+        6.4606e-03], grad_fn=<SelectBackward0>)
+epoch: 12, train loss: 0.045312270522117615, test auc: 0.8771017854820231 test acc: 0.8311070167357593
+X_example shape:  1599
+Organization  0  contribution:  0.00254719
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00003736
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -536, 1: -536}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.6028e-03],
+        [0.0000e+00, 7.0348e-01],
+        [0.0000e+00, 6.0219e-05],
+        ...,
+        [0.0000e+00, 4.0371e-05],
+        [0.0000e+00, 3.5314e-04],
+        [0.0000e+00, 5.3991e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.6028e-03, 7.0348e-01, 6.0219e-05,  ..., 4.0371e-05, 3.5314e-04,
+        5.3991e-03], grad_fn=<SelectBackward0>)
+epoch: 13, train loss: 0.09225105494260788, test auc: 0.8807072643845626 test acc: 0.8304928604329802
+X_example shape:  1599
+Organization  0  contribution:  0.00258141
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00000455
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -589, 1: -589}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.5108e-02],
+        [0.0000e+00, 8.8266e-01],
+        [0.0000e+00, 3.6718e-05],
+        ...,
+        [0.0000e+00, 8.0726e-05],
+        [0.0000e+00, 7.0259e-04],
+        [0.0000e+00, 8.8004e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.5108e-02, 8.8266e-01, 3.6718e-05,  ..., 8.0726e-05, 7.0259e-04,
+        8.8004e-03], grad_fn=<SelectBackward0>)
+epoch: 14, train loss: 0.06615734845399857, test auc: 0.8787432774299565 test acc: 0.8203592814371258
+X_example shape:  1599
+Organization  0  contribution:  0.00308527
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00003852
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -642, 1: -642}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.4053e-02],
+        [0.0000e+00, 8.5500e-01],
+        [0.0000e+00, 3.8630e-05],
+        ...,
+        [0.0000e+00, 1.6818e-04],
+        [0.0000e+00, 4.2094e-04],
+        [0.0000e+00, 5.3537e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.4053e-02, 8.5500e-01, 3.8630e-05,  ..., 1.6818e-04, 4.2094e-04,
+        5.3537e-03], grad_fn=<SelectBackward0>)
+epoch: 15, train loss: 0.10436060279607773, test auc: 0.8799619878419127 test acc: 0.8211269768155995
+X_example shape:  1599
+Organization  0  contribution:  0.00335969
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00002065
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -695, 1: -695}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 8.2708e-03],
+        [0.0000e+00, 8.3490e-01],
+        [0.0000e+00, 3.4172e-05],
+        ...,
+        [0.0000e+00, 6.7631e-05],
+        [0.0000e+00, 2.3673e-04],
+        [0.0000e+00, 7.2922e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([8.2708e-03, 8.3490e-01, 3.4172e-05,  ..., 6.7631e-05, 2.3673e-04,
+        7.2922e-03], grad_fn=<SelectBackward0>)
+epoch: 16, train loss: 0.13076601922512054, test auc: 0.8787369777050829 test acc: 0.8268079226163059
+X_example shape:  1599
+Organization  0  contribution:  0.00284688
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00005612
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -748, 1: -748}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 8.9605e-03],
+        [0.0000e+00, 7.8039e-01],
+        [0.0000e+00, 2.1598e-05],
+        ...,
+        [0.0000e+00, 9.1785e-05],
+        [0.0000e+00, 1.9965e-04],
+        [0.0000e+00, 5.9094e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([8.9605e-03, 7.8039e-01, 2.1598e-05,  ..., 9.1785e-05, 1.9965e-04,
+        5.9094e-03], grad_fn=<SelectBackward0>)
+epoch: 17, train loss: 0.07481561601161957, test auc: 0.8783963471268037 test acc: 0.8326424074927069
+X_example shape:  1599
+Organization  0  contribution:  0.00259463
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00002399
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -801, 1: -801}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.6636e-03],
+        [0.0000e+00, 8.9189e-01],
+        [0.0000e+00, 2.4335e-05],
+        ...,
+        [0.0000e+00, 6.1741e-05],
+        [0.0000e+00, 5.2843e-04],
+        [0.0000e+00, 5.0382e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.6636e-03, 8.9189e-01, 2.4335e-05,  ..., 6.1741e-05, 5.2843e-04,
+        5.0382e-03], grad_fn=<SelectBackward0>)
+epoch: 18, train loss: 0.05545644089579582, test auc: 0.8824954953785472 test acc: 0.8307999385843697
+X_example shape:  1599
+Organization  0  contribution:  0.00301731
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00003790
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -854, 1: -854}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.3494e-03],
+        [0.0000e+00, 6.9496e-01],
+        [0.0000e+00, 2.4009e-06],
+        ...,
+        [0.0000e+00, 1.6417e-05],
+        [0.0000e+00, 6.0372e-05],
+        [0.0000e+00, 1.3369e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.3494e-03, 6.9496e-01, 2.4009e-06,  ..., 1.6417e-05, 6.0372e-05,
+        1.3369e-03], grad_fn=<SelectBackward0>)
+epoch: 19, train loss: 0.04663649573922157, test auc: 0.8789186515890707 test acc: 0.8335636419468755
+X_example shape:  1599
+Organization  0  contribution:  0.00225249
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00002302
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -907, 1: -907}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.5525e-02],
+        [0.0000e+00, 7.1507e-01],
+        [0.0000e+00, 5.6623e-05],
+        ...,
+        [0.0000e+00, 1.2950e-04],
+        [0.0000e+00, 3.4897e-04],
+        [0.0000e+00, 1.2094e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.5525e-02, 7.1507e-01, 5.6623e-05,  ..., 1.2950e-04, 3.4897e-04,
+        1.2094e-02], grad_fn=<SelectBackward0>)
+epoch: 20, train loss: 0.10636010766029358, test auc: 0.8727339762361651 test acc: 0.831260555811454
+X_example shape:  1599
+Organization  0  contribution:  0.00253807
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00001352
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -960, 1: -960}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 9.5280e-03],
+        [0.0000e+00, 7.9227e-01],
+        [0.0000e+00, 2.0780e-05],
+        ...,
+        [0.0000e+00, 1.0447e-04],
+        [0.0000e+00, 3.1595e-04],
+        [0.0000e+00, 4.8209e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([9.5280e-03, 7.9227e-01, 2.0780e-05,  ..., 1.0447e-04, 3.1595e-04,
+        4.8209e-03], grad_fn=<SelectBackward0>)
+epoch: 21, train loss: 0.0472271554172039, test auc: 0.8773150852575493 test acc: 0.8283433133732535
+X_example shape:  1599
+Organization  0  contribution:  0.00280071
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00002536
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1013, 1: -1013}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.7943e-03],
+        [0.0000e+00, 8.2674e-01],
+        [0.0000e+00, 1.3609e-05],
+        ...,
+        [0.0000e+00, 7.2046e-05],
+        [0.0000e+00, 8.5885e-05],
+        [0.0000e+00, 8.1257e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.7943e-03, 8.2674e-01, 1.3609e-05,  ..., 7.2046e-05, 8.5885e-05,
+        8.1257e-03], grad_fn=<SelectBackward0>)
+epoch: 22, train loss: 0.10906720161437988, test auc: 0.8761696807350341 test acc: 0.8294180869031168
+X_example shape:  1599
+Organization  0  contribution:  0.00282697
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00004130
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1066, 1: -1066}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 9.7701e-03],
+        [0.0000e+00, 9.1188e-01],
+        [0.0000e+00, 2.6836e-05],
+        ...,
+        [0.0000e+00, 7.9291e-05],
+        [0.0000e+00, 1.4658e-04],
+        [0.0000e+00, 7.2235e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([9.7701e-03, 9.1188e-01, 2.6836e-05,  ..., 7.9291e-05, 1.4658e-04,
+        7.2235e-03], grad_fn=<SelectBackward0>)
+epoch: 23, train loss: 0.09520965814590454, test auc: 0.874596403989775 test acc: 0.8271150007676954
+X_example shape:  1599
+Organization  0  contribution:  0.00282524
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00005387
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1119, 1: -1119}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.9813e-03],
+        [0.0000e+00, 8.6728e-01],
+        [0.0000e+00, 9.8913e-06],
+        ...,
+        [0.0000e+00, 5.2644e-05],
+        [0.0000e+00, 7.7856e-05],
+        [0.0000e+00, 5.3526e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.9813e-03, 8.6728e-01, 9.8913e-06,  ..., 5.2644e-05, 7.7856e-05,
+        5.3526e-03], grad_fn=<SelectBackward0>)
+epoch: 24, train loss: 0.06892965734004974, test auc: 0.8731768023512864 test acc: 0.8278826961461692
+X_example shape:  1599
+Organization  0  contribution:  0.00280868
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00006733
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1172, 1: -1172}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.1228e-02],
+        [0.0000e+00, 8.9989e-01],
+        [0.0000e+00, 4.1149e-05],
+        ...,
+        [0.0000e+00, 6.5769e-05],
+        [0.0000e+00, 2.9651e-04],
+        [0.0000e+00, 6.9292e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.1228e-02, 8.9989e-01, 4.1149e-05,  ..., 6.5769e-05, 2.9651e-04,
+        6.9292e-03], grad_fn=<SelectBackward0>)
+epoch: 25, train loss: 0.10135328024625778, test auc: 0.8770277159895672 test acc: 0.8223552894211577
+X_example shape:  1599
+Organization  0  contribution:  0.00330332
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00004578
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1225, 1: -1225}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.0280e-03],
+        [0.0000e+00, 8.6590e-01],
+        [0.0000e+00, 8.7708e-06],
+        ...,
+        [0.0000e+00, 5.7965e-05],
+        [0.0000e+00, 8.3745e-05],
+        [0.0000e+00, 4.8353e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.0280e-03, 8.6590e-01, 8.7708e-06,  ..., 5.7965e-05, 8.3745e-05,
+        4.8353e-03], grad_fn=<SelectBackward0>)
+epoch: 26, train loss: 0.08280760794878006, test auc: 0.8760986020210535 test acc: 0.8254260709350529
+X_example shape:  1599
+Organization  0  contribution:  0.00298026
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00007775
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1278, 1: -1278}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.8468e-03],
+        [0.0000e+00, 8.9554e-01],
+        [0.0000e+00, 4.7411e-06],
+        ...,
+        [0.0000e+00, 3.5157e-05],
+        [0.0000e+00, 8.2948e-05],
+        [0.0000e+00, 7.7231e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.8468e-03, 8.9554e-01, 4.7411e-06,  ..., 3.5157e-05, 8.2948e-05,
+        7.7231e-03], grad_fn=<SelectBackward0>)
+epoch: 27, train loss: 0.09406570345163345, test auc: 0.8746753096346591 test acc: 0.8220482112697681
+X_example shape:  1599
+Organization  0  contribution:  0.00332155
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00006351
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1331, 1: -1331}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.5588e-03],
+        [0.0000e+00, 7.7622e-01],
+        [0.0000e+00, 2.9495e-06],
+        ...,
+        [0.0000e+00, 1.4039e-05],
+        [0.0000e+00, 6.7754e-05],
+        [0.0000e+00, 1.1538e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.5588e-03, 7.7622e-01, 2.9495e-06,  ..., 1.4039e-05, 6.7754e-05,
+        1.1538e-03], grad_fn=<SelectBackward0>)
+epoch: 28, train loss: 0.010618158616125584, test auc: 0.8794568008138989 test acc: 0.8352525717795178
+X_example shape:  1599
+Organization  0  contribution:  0.00239839
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00011423
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1384, 1: -1384}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.1791e-03],
+        [0.0000e+00, 8.7679e-01],
+        [0.0000e+00, 1.6091e-05],
+        ...,
+        [0.0000e+00, 6.7364e-05],
+        [0.0000e+00, 1.1532e-04],
+        [0.0000e+00, 5.3832e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.1791e-03, 8.7679e-01, 1.6091e-05,  ..., 6.7364e-05, 1.1532e-04,
+        5.3832e-03], grad_fn=<SelectBackward0>)
+epoch: 29, train loss: 0.04544941708445549, test auc: 0.872395191031839 test acc: 0.8246583755565792
+X_example shape:  1599
+Organization  0  contribution:  0.00292691
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00009456
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1437, 1: -1437}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.4732e-02],
+        [0.0000e+00, 7.6002e-01],
+        [0.0000e+00, 5.2743e-05],
+        ...,
+        [0.0000e+00, 1.8890e-04],
+        [0.0000e+00, 3.9903e-04],
+        [0.0000e+00, 1.1954e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.4732e-02, 7.6002e-01, 5.2743e-05,  ..., 1.8890e-04, 3.9903e-04,
+        1.1954e-02], grad_fn=<SelectBackward0>)
+epoch: 30, train loss: 0.18415464460849762, test auc: 0.8759213824879867 test acc: 0.8277291570704745
+X_example shape:  1599
+Organization  0  contribution:  0.00290835
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00011468
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1490, 1: -1490}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.3064e-02],
+        [0.0000e+00, 7.4057e-01],
+        [0.0000e+00, 2.6769e-05],
+        ...,
+        [0.0000e+00, 7.9547e-05],
+        [0.0000e+00, 1.5894e-04],
+        [0.0000e+00, 6.2201e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.3064e-02, 7.4057e-01, 2.6769e-05,  ..., 7.9547e-05, 1.5894e-04,
+        6.2201e-03], grad_fn=<SelectBackward0>)
+epoch: 31, train loss: 0.021039193496108055, test auc: 0.877453170136097 test acc: 0.828036235221864
+X_example shape:  1599
+Organization  0  contribution:  0.00294004
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00013949
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1543, 1: -1543}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 4.5200e-03],
+        [0.0000e+00, 7.0986e-01],
+        [0.0000e+00, 4.7566e-06],
+        ...,
+        [0.0000e+00, 1.5535e-05],
+        [0.0000e+00, 3.8588e-05],
+        [0.0000e+00, 1.2661e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([4.5200e-03, 7.0986e-01, 4.7566e-06,  ..., 1.5535e-05, 3.8588e-05,
+        1.2661e-03], grad_fn=<SelectBackward0>)
+epoch: 32, train loss: 0.047331273555755615, test auc: 0.8774251077252954 test acc: 0.8367879625364655
+X_example shape:  1599
+Organization  0  contribution:  0.00211919
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00022529
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1596, 1: -1596}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.3739e-03],
+        [0.0000e+00, 8.7022e-01],
+        [0.0000e+00, 6.0785e-06],
+        ...,
+        [0.0000e+00, 4.5612e-05],
+        [0.0000e+00, 5.4412e-05],
+        [0.0000e+00, 6.5924e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.3739e-03, 8.7022e-01, 6.0785e-06,  ..., 4.5612e-05, 5.4412e-05,
+        6.5924e-03], grad_fn=<SelectBackward0>)
+epoch: 33, train loss: 0.07840332388877869, test auc: 0.8741804312473482 test acc: 0.8237371411024106
+X_example shape:  1599
+Organization  0  contribution:  0.00330216
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00012589
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1649, 1: -1649}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.7506e-02],
+        [0.0000e+00, 8.9228e-01],
+        [0.0000e+00, 6.3268e-05],
+        ...,
+        [0.0000e+00, 1.7306e-04],
+        [0.0000e+00, 1.9166e-04],
+        [0.0000e+00, 1.4246e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.7506e-02, 8.9228e-01, 6.3268e-05,  ..., 1.7306e-04, 1.9166e-04,
+        1.4246e-02], grad_fn=<SelectBackward0>)
+epoch: 34, train loss: 0.05720058083534241, test auc: 0.875605759908449 test acc: 0.8269614616920006
+X_example shape:  1599
+Organization  0  contribution:  0.00312856
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00018174
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1702, 1: -1702}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.0570e-03],
+        [0.0000e+00, 8.2332e-01],
+        [0.0000e+00, 4.8627e-06],
+        ...,
+        [0.0000e+00, 3.3344e-05],
+        [0.0000e+00, 3.7016e-05],
+        [0.0000e+00, 2.9446e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.0570e-03, 8.2332e-01, 4.8627e-06,  ..., 3.3344e-05, 3.7016e-05,
+        2.9446e-03], grad_fn=<SelectBackward0>)
+epoch: 35, train loss: 0.039725903421640396, test auc: 0.875011549495602 test acc: 0.8304928604329802
+X_example shape:  1599
+Organization  0  contribution:  0.00266248
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00016881
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1755, 1: -1755}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.0651e-03],
+        [0.0000e+00, 7.2580e-01],
+        [0.0000e+00, 1.2819e-05],
+        ...,
+        [0.0000e+00, 5.4392e-05],
+        [0.0000e+00, 5.0901e-05],
+        [0.0000e+00, 5.3972e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.0651e-03, 7.2580e-01, 1.2819e-05,  ..., 5.4392e-05, 5.0901e-05,
+        5.3972e-03], grad_fn=<SelectBackward0>)
+epoch: 36, train loss: 0.04878774285316467, test auc: 0.8682880249484377 test acc: 0.8300322432058959
+X_example shape:  1599
+Organization  0  contribution:  0.00267541
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00026643
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1808, 1: -1808}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.5272e-03],
+        [0.0000e+00, 7.5266e-01],
+        [0.0000e+00, 6.6217e-06],
+        ...,
+        [0.0000e+00, 2.5585e-05],
+        [0.0000e+00, 3.0052e-05],
+        [0.0000e+00, 4.0104e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.5272e-03, 7.5266e-01, 6.6217e-06,  ..., 2.5585e-05, 3.0052e-05,
+        4.0104e-03], grad_fn=<SelectBackward0>)
+epoch: 37, train loss: 0.06334448605775833, test auc: 0.8684381365744718 test acc: 0.8284968524489482
+X_example shape:  1599
+Organization  0  contribution:  0.00271364
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00020947
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1861, 1: -1861}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 8.9930e-03],
+        [0.0000e+00, 7.2787e-01],
+        [0.0000e+00, 2.0142e-05],
+        ...,
+        [0.0000e+00, 1.1425e-04],
+        [0.0000e+00, 1.3154e-04],
+        [0.0000e+00, 9.8126e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([8.9930e-03, 7.2787e-01, 2.0142e-05,  ..., 1.1425e-04, 1.3154e-04,
+        9.8126e-03], grad_fn=<SelectBackward0>)
+epoch: 38, train loss: 0.02344493567943573, test auc: 0.8699477161015622 test acc: 0.8275756179947796
+X_example shape:  1599
+Organization  0  contribution:  0.00257406
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00023816
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1914, 1: -1914}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 9.1929e-03],
+        [0.0000e+00, 8.0496e-01],
+        [0.0000e+00, 2.8699e-05],
+        ...,
+        [0.0000e+00, 1.3382e-04],
+        [0.0000e+00, 3.0737e-04],
+        [0.0000e+00, 9.1808e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([9.1929e-03, 8.0496e-01, 2.8699e-05,  ..., 1.3382e-04, 3.0737e-04,
+        9.1808e-03], grad_fn=<SelectBackward0>)
+epoch: 39, train loss: 0.12133858352899551, test auc: 0.871239032433529 test acc: 0.8265008444649163
+X_example shape:  1599
+Organization  0  contribution:  0.00277374
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00013796
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -1967, 1: -1967}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.6557e-03],
+        [0.0000e+00, 9.0740e-01],
+        [0.0000e+00, 3.4614e-06],
+        ...,
+        [0.0000e+00, 4.6457e-05],
+        [0.0000e+00, 5.2987e-05],
+        [0.0000e+00, 3.9485e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.6557e-03, 9.0740e-01, 3.4614e-06,  ..., 4.6457e-05, 5.2987e-05,
+        3.9485e-03], grad_fn=<SelectBackward0>)
+epoch: 40, train loss: 0.04652177169919014, test auc: 0.8741714589119217 test acc: 0.8197451251343467
+X_example shape:  1599
+Organization  0  contribution:  0.00328968
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00007427
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2020, 1: -2020}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.2133e-03],
+        [0.0000e+00, 8.5481e-01],
+        [0.0000e+00, 2.3365e-06],
+        ...,
+        [0.0000e+00, 1.9531e-05],
+        [0.0000e+00, 3.6886e-05],
+        [0.0000e+00, 3.9797e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.2133e-03, 8.5481e-01, 2.3365e-06,  ..., 1.9531e-05, 3.6886e-05,
+        3.9797e-03], grad_fn=<SelectBackward0>)
+epoch: 41, train loss: 0.03485838696360588, test auc: 0.871184880253048 test acc: 0.8249654537079687
+X_example shape:  1599
+Organization  0  contribution:  0.00298158
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00011935
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2073, 1: -2073}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.2904e-02],
+        [0.0000e+00, 9.0774e-01],
+        [0.0000e+00, 1.3585e-05],
+        ...,
+        [0.0000e+00, 5.6832e-05],
+        [0.0000e+00, 8.1439e-05],
+        [0.0000e+00, 7.0119e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.2904e-02, 9.0774e-01, 1.3585e-05,  ..., 5.6832e-05, 8.1439e-05,
+        7.0119e-03], grad_fn=<SelectBackward0>)
+epoch: 42, train loss: 0.08505228906869888, test auc: 0.8738266285170601 test acc: 0.8206663595885153
+X_example shape:  1599
+Organization  0  contribution:  0.00320968
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00010826
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2126, 1: -2126}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.2294e-03],
+        [0.0000e+00, 7.2856e-01],
+        [0.0000e+00, 9.0626e-06],
+        ...,
+        [0.0000e+00, 4.8663e-05],
+        [0.0000e+00, 4.9596e-05],
+        [0.0000e+00, 4.9733e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.2294e-03, 7.2856e-01, 9.0626e-06,  ..., 4.8663e-05, 4.9596e-05,
+        4.9733e-03], grad_fn=<SelectBackward0>)
+epoch: 43, train loss: 0.07849887758493423, test auc: 0.8696590741618884 test acc: 0.8350990327038231
+X_example shape:  1599
+Organization  0  contribution:  0.00234191
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00017505
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2179, 1: -2179}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.8308e-03],
+        [0.0000e+00, 7.6618e-01],
+        [0.0000e+00, 4.3188e-06],
+        ...,
+        [0.0000e+00, 2.2535e-05],
+        [0.0000e+00, 3.4617e-05],
+        [0.0000e+00, 1.8205e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.8308e-03, 7.6618e-01, 4.3188e-06,  ..., 2.2535e-05, 3.4617e-05,
+        1.8205e-03], grad_fn=<SelectBackward0>)
+epoch: 44, train loss: 0.06082791090011597, test auc: 0.8740851717712256 test acc: 0.8334101028711807
+X_example shape:  1599
+Organization  0  contribution:  0.00247243
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00018941
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2232, 1: -2232}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.8969e-03],
+        [0.0000e+00, 8.9434e-01],
+        [0.0000e+00, 1.6492e-06],
+        ...,
+        [0.0000e+00, 1.6602e-05],
+        [0.0000e+00, 2.1371e-05],
+        [0.0000e+00, 4.2741e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.8969e-03, 8.9434e-01, 1.6492e-06,  ..., 1.6602e-05, 2.1371e-05,
+        4.2741e-03], grad_fn=<SelectBackward0>)
+epoch: 45, train loss: 0.05231273174285889, test auc: 0.8742242747871266 test acc: 0.8263473053892215
+X_example shape:  1599
+Organization  0  contribution:  0.00315258
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00014605
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2285, 1: -2285}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.9644e-03],
+        [0.0000e+00, 8.9478e-01],
+        [0.0000e+00, 2.8216e-06],
+        ...,
+        [0.0000e+00, 1.9921e-05],
+        [0.0000e+00, 2.4170e-05],
+        [0.0000e+00, 5.2411e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.9644e-03, 8.9478e-01, 2.8216e-06,  ..., 1.9921e-05, 2.4170e-05,
+        5.2411e-03], grad_fn=<SelectBackward0>)
+epoch: 46, train loss: 0.10640999674797058, test auc: 0.873181765770884 test acc: 0.8197451251343467
+X_example shape:  1599
+Organization  0  contribution:  0.00342668
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00013380
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2338, 1: -2338}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.8478e-03],
+        [0.0000e+00, 8.3928e-01],
+        [0.0000e+00, 3.8588e-06],
+        ...,
+        [0.0000e+00, 3.3132e-05],
+        [0.0000e+00, 2.1487e-05],
+        [0.0000e+00, 8.7145e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.8478e-03, 8.3928e-01, 3.8588e-06,  ..., 3.3132e-05, 2.1487e-05,
+        8.7145e-03], grad_fn=<SelectBackward0>)
+epoch: 47, train loss: 0.07277441769838333, test auc: 0.8663066660252401 test acc: 0.8157531091662829
+X_example shape:  1599
+Organization  0  contribution:  0.00327552
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00015533
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2391, 1: -2391}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.5919e-03],
+        [0.0000e+00, 8.6801e-01],
+        [0.0000e+00, 1.8329e-05],
+        ...,
+        [0.0000e+00, 7.3274e-05],
+        [0.0000e+00, 7.9686e-05],
+        [0.0000e+00, 1.1763e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.5919e-03, 8.6801e-01, 1.8329e-05,  ..., 7.3274e-05, 7.9686e-05,
+        1.1763e-02], grad_fn=<SelectBackward0>)
+epoch: 48, train loss: 0.04386700317263603, test auc: 0.8693968401598171 test acc: 0.8168278826961461
+X_example shape:  1599
+Organization  0  contribution:  0.00335443
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00026383
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2444, 1: -2444}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.0845e-02],
+        [0.0000e+00, 7.5361e-01],
+        [0.0000e+00, 5.4882e-05],
+        ...,
+        [0.0000e+00, 2.0155e-04],
+        [0.0000e+00, 8.7783e-05],
+        [0.0000e+00, 1.6032e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.0845e-02, 7.5361e-01, 5.4882e-05,  ..., 2.0155e-04, 8.7783e-05,
+        1.6032e-02], grad_fn=<SelectBackward0>)
+epoch: 49, train loss: 0.1543925553560257, test auc: 0.8674128086260668 test acc: 0.8278826961461692
+X_example shape:  1599
+Organization  0  contribution:  0.00267359
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00023796
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2497, 1: -2497}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.3603e-03],
+        [0.0000e+00, 7.7334e-01],
+        [0.0000e+00, 2.5136e-06],
+        ...,
+        [0.0000e+00, 2.7514e-05],
+        [0.0000e+00, 1.7115e-05],
+        [0.0000e+00, 3.5057e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.3603e-03, 7.7334e-01, 2.5136e-06,  ..., 2.7514e-05, 1.7115e-05,
+        3.5057e-03], grad_fn=<SelectBackward0>)
+epoch: 50, train loss: 0.060671743005514145, test auc: 0.8691004349228239 test acc: 0.8291110087517273
+X_example shape:  1599
+Organization  0  contribution:  0.00267659
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00027493
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2550, 1: -2550}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.4122e-03],
+        [0.0000e+00, 7.3687e-01],
+        [0.0000e+00, 4.7077e-06],
+        ...,
+        [0.0000e+00, 4.6478e-05],
+        [0.0000e+00, 6.4492e-05],
+        [0.0000e+00, 4.6822e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.4122e-03, 7.3687e-01, 4.7077e-06,  ..., 4.6478e-05, 6.4492e-05,
+        4.6822e-03], grad_fn=<SelectBackward0>)
+epoch: 51, train loss: 0.018338719382882118, test auc: 0.8725603838174195 test acc: 0.8307999385843697
+X_example shape:  1599
+Organization  0  contribution:  0.00250611
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00021508
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2603, 1: -2603}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 8.9737e-03],
+        [0.0000e+00, 8.2334e-01],
+        [0.0000e+00, 1.7346e-05],
+        ...,
+        [0.0000e+00, 6.3079e-05],
+        [0.0000e+00, 1.2630e-04],
+        [0.0000e+00, 6.7568e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([8.9737e-03, 8.2334e-01, 1.7346e-05,  ..., 6.3079e-05, 1.2630e-04,
+        6.7568e-03], grad_fn=<SelectBackward0>)
+epoch: 52, train loss: 0.15324048697948456, test auc: 0.8733512856402162 test acc: 0.8278826961461692
+X_example shape:  1599
+Organization  0  contribution:  0.00285097
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00014628
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2656, 1: -2656}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.7235e-03],
+        [0.0000e+00, 8.0002e-01],
+        [0.0000e+00, 3.6390e-06],
+        ...,
+        [0.0000e+00, 6.8569e-05],
+        [0.0000e+00, 4.4157e-05],
+        [0.0000e+00, 9.6676e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.7235e-03, 8.0002e-01, 3.6390e-06,  ..., 6.8569e-05, 4.4157e-05,
+        9.6676e-03], grad_fn=<SelectBackward0>)
+epoch: 53, train loss: 0.08213542401790619, test auc: 0.8675959460825002 test acc: 0.826654383540611
+X_example shape:  1599
+Organization  0  contribution:  0.00267038
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00019137
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2709, 1: -2709}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.3558e-03],
+        [0.0000e+00, 8.4694e-01],
+        [0.0000e+00, 6.2065e-06],
+        ...,
+        [0.0000e+00, 3.7741e-05],
+        [0.0000e+00, 8.8834e-05],
+        [0.0000e+00, 7.0861e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.3558e-03, 8.4694e-01, 6.2065e-06,  ..., 3.7741e-05, 8.8834e-05,
+        7.0861e-03], grad_fn=<SelectBackward0>)
+epoch: 54, train loss: 0.11808180809020996, test auc: 0.8739846307075826 test acc: 0.822201750345463
+X_example shape:  1599
+Organization  0  contribution:  0.00314628
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00008071
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2762, 1: -2762}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.6705e-03],
+        [0.0000e+00, 8.6472e-01],
+        [0.0000e+00, 1.2453e-05],
+        ...,
+        [0.0000e+00, 8.8820e-05],
+        [0.0000e+00, 7.6156e-05],
+        [0.0000e+00, 9.3625e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.6705e-03, 8.6472e-01, 1.2453e-05,  ..., 8.8820e-05, 7.6156e-05,
+        9.3625e-03], grad_fn=<SelectBackward0>)
+epoch: 55, train loss: 0.08462705463171005, test auc: 0.8682462813169504 test acc: 0.8248119146322739
+X_example shape:  1599
+Organization  0  contribution:  0.00278701
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00006813
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2815, 1: -2815}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.5128e-03],
+        [0.0000e+00, 8.0713e-01],
+        [0.0000e+00, 3.9346e-06],
+        ...,
+        [0.0000e+00, 2.1786e-05],
+        [0.0000e+00, 1.8962e-05],
+        [0.0000e+00, 4.3306e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.5128e-03, 8.0713e-01, 3.9346e-06,  ..., 2.1786e-05, 1.8962e-05,
+        4.3306e-03], grad_fn=<SelectBackward0>)
+epoch: 56, train loss: 0.04121609032154083, test auc: 0.8678750429844865 test acc: 0.831260555811454
+X_example shape:  1599
+Organization  0  contribution:  0.00243486
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00016976
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2868, 1: -2868}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.4985e-03],
+        [0.0000e+00, 7.9295e-01],
+        [0.0000e+00, 4.9197e-06],
+        ...,
+        [0.0000e+00, 2.6273e-05],
+        [0.0000e+00, 1.6173e-05],
+        [0.0000e+00, 6.5551e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.4985e-03, 7.9295e-01, 4.9197e-06,  ..., 2.6273e-05, 1.6173e-05,
+        6.5551e-03], grad_fn=<SelectBackward0>)
+epoch: 57, train loss: 0.0858738124370575, test auc: 0.8661514637124395 test acc: 0.8261937663135268
+X_example shape:  1599
+Organization  0  contribution:  0.00265412
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00012185
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2921, 1: -2921}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.9206e-03],
+        [0.0000e+00, 8.9574e-01],
+        [0.0000e+00, 8.3119e-06],
+        ...,
+        [0.0000e+00, 8.4640e-05],
+        [0.0000e+00, 4.0614e-05],
+        [0.0000e+00, 9.7245e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.9206e-03, 8.9574e-01, 8.3119e-06,  ..., 8.4640e-05, 4.0614e-05,
+        9.7245e-03], grad_fn=<SelectBackward0>)
+epoch: 58, train loss: 0.0922323688864708, test auc: 0.8657872887078641 test acc: 0.8232765238753262
+X_example shape:  1599
+Organization  0  contribution:  0.00287622
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00012754
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -2974, 1: -2974}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.6329e-03],
+        [0.0000e+00, 8.5639e-01],
+        [0.0000e+00, 1.5345e-06],
+        ...,
+        [0.0000e+00, 2.4319e-05],
+        [0.0000e+00, 1.6116e-05],
+        [0.0000e+00, 4.8355e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.6329e-03, 8.5639e-01, 1.5345e-06,  ..., 2.4319e-05, 1.6116e-05,
+        4.8355e-03], grad_fn=<SelectBackward0>)
+epoch: 59, train loss: 0.12116589397192001, test auc: 0.8700443118829612 test acc: 0.8214340549669891
+X_example shape:  1599
+Organization  0  contribution:  0.00309014
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00009680
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3027, 1: -3027}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.0415e-02],
+        [0.0000e+00, 8.3957e-01],
+        [0.0000e+00, 1.2105e-05],
+        ...,
+        [0.0000e+00, 1.1350e-04],
+        [0.0000e+00, 9.6961e-05],
+        [0.0000e+00, 1.4341e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.0415e-02, 8.3957e-01, 1.2105e-05,  ..., 1.1350e-04, 9.6961e-05,
+        1.4341e-02], grad_fn=<SelectBackward0>)
+epoch: 60, train loss: 0.13455678522586823, test auc: 0.8693132892632579 test acc: 0.8243512974051896
+X_example shape:  1599
+Organization  0  contribution:  0.00293152
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00008828
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3080, 1: -3080}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.9008e-03],
+        [0.0000e+00, 8.5305e-01],
+        [0.0000e+00, 5.5655e-06],
+        ...,
+        [0.0000e+00, 7.0134e-05],
+        [0.0000e+00, 5.8560e-05],
+        [0.0000e+00, 8.5440e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.9008e-03, 8.5305e-01, 5.5655e-06,  ..., 7.0134e-05, 5.8560e-05,
+        8.5440e-03], grad_fn=<SelectBackward0>)
+epoch: 61, train loss: 0.03284909948706627, test auc: 0.8693731684663517 test acc: 0.8229694457239367
+X_example shape:  1599
+Organization  0  contribution:  0.00299204
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00005923
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3133, 1: -3133}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.5135e-03],
+        [0.0000e+00, 7.8048e-01],
+        [0.0000e+00, 3.5018e-06],
+        ...,
+        [0.0000e+00, 3.7580e-05],
+        [0.0000e+00, 2.6562e-05],
+        [0.0000e+00, 6.2923e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.5135e-03, 7.8048e-01, 3.5018e-06,  ..., 3.7580e-05, 2.6562e-05,
+        6.2923e-03], grad_fn=<SelectBackward0>)
+epoch: 62, train loss: 0.0391010046005249, test auc: 0.8683933385309245 test acc: 0.8263473053892215
+X_example shape:  1599
+Organization  0  contribution:  0.00276041
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00011622
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3186, 1: -3186}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.2112e-03],
+        [0.0000e+00, 8.9238e-01],
+        [0.0000e+00, 9.5615e-07],
+        ...,
+        [0.0000e+00, 3.0787e-05],
+        [0.0000e+00, 8.9062e-06],
+        [0.0000e+00, 7.1146e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.2112e-03, 8.9238e-01, 9.5615e-07,  ..., 3.0787e-05, 8.9062e-06,
+        7.1146e-03], grad_fn=<SelectBackward0>)
+epoch: 63, train loss: 0.04388383403420448, test auc: 0.8675037410184379 test acc: 0.8185168125287886
+X_example shape:  1599
+Organization  0  contribution:  0.00314599
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00007992
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3239, 1: -3239}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.0509e-03],
+        [0.0000e+00, 7.2638e-01],
+        [0.0000e+00, 9.4472e-07],
+        ...,
+        [0.0000e+00, 2.4625e-05],
+        [0.0000e+00, 1.2359e-05],
+        [0.0000e+00, 3.2003e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.0509e-03, 7.2638e-01, 9.4472e-07,  ..., 2.4625e-05, 1.2359e-05,
+        3.2003e-03], grad_fn=<SelectBackward0>)
+epoch: 64, train loss: 0.08316721767187119, test auc: 0.8682028195786795 test acc: 0.831260555811454
+X_example shape:  1599
+Organization  0  contribution:  0.00251963
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00011785
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3292, 1: -3292}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.7068e-03],
+        [0.0000e+00, 8.0353e-01],
+        [0.0000e+00, 2.7457e-07],
+        ...,
+        [0.0000e+00, 5.8018e-06],
+        [0.0000e+00, 2.1480e-06],
+        [0.0000e+00, 2.2983e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.7068e-03, 8.0353e-01, 2.7457e-07,  ..., 5.8018e-06, 2.1480e-06,
+        2.2983e-03], grad_fn=<SelectBackward0>)
+epoch: 65, train loss: 0.03729045391082764, test auc: 0.8669741186939436 test acc: 0.8288039306003377
+X_example shape:  1599
+Organization  0  contribution:  0.00256575
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00012925
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3345, 1: -3345}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.3483e-03],
+        [0.0000e+00, 6.7904e-01],
+        [0.0000e+00, 2.4411e-06],
+        ...,
+        [0.0000e+00, 3.9635e-05],
+        [0.0000e+00, 1.3464e-05],
+        [0.0000e+00, 6.5979e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.3483e-03, 6.7904e-01, 2.4411e-06,  ..., 3.9635e-05, 1.3464e-05,
+        6.5979e-03], grad_fn=<SelectBackward0>)
+epoch: 66, train loss: 0.08621314913034439, test auc: 0.864139306134303 test acc: 0.8314140948871488
+X_example shape:  1599
+Organization  0  contribution:  0.00217856
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00010877
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3398, 1: -3398}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.4406e-03],
+        [0.0000e+00, 8.0293e-01],
+        [0.0000e+00, 2.7156e-06],
+        ...,
+        [0.0000e+00, 2.2217e-05],
+        [0.0000e+00, 1.2246e-05],
+        [0.0000e+00, 2.8912e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.4406e-03, 8.0293e-01, 2.7156e-06,  ..., 2.2217e-05, 1.2246e-05,
+        2.8912e-03], grad_fn=<SelectBackward0>)
+epoch: 67, train loss: 0.07970985770225525, test auc: 0.8665107389310016 test acc: 0.8311070167357593
+X_example shape:  1599
+Organization  0  contribution:  0.00238973
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00015254
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3451, 1: -3451}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 4.6889e-03],
+        [0.0000e+00, 7.6094e-01],
+        [0.0000e+00, 4.5397e-06],
+        ...,
+        [0.0000e+00, 5.4333e-05],
+        [0.0000e+00, 3.2305e-05],
+        [0.0000e+00, 7.7472e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([4.6889e-03, 7.6094e-01, 4.5397e-06,  ..., 5.4333e-05, 3.2305e-05,
+        7.7472e-03], grad_fn=<SelectBackward0>)
+epoch: 68, train loss: 0.08973098546266556, test auc: 0.8645283618704507 test acc: 0.8284968524489482
+X_example shape:  1599
+Organization  0  contribution:  0.00242681
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00011585
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3504, 1: -3504}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.0342e-02],
+        [0.0000e+00, 7.9103e-01],
+        [0.0000e+00, 1.0174e-05],
+        ...,
+        [0.0000e+00, 1.2761e-04],
+        [0.0000e+00, 7.1264e-05],
+        [0.0000e+00, 1.4642e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.0342e-02, 7.9103e-01, 1.0174e-05,  ..., 1.2761e-04, 7.1264e-05,
+        1.4642e-02], grad_fn=<SelectBackward0>)
+epoch: 69, train loss: 0.052581291645765305, test auc: 0.8662128701215631 test acc: 0.8212805158912944
+X_example shape:  1599
+Organization  0  contribution:  0.00293007
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00007257
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3557, 1: -3557}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.8870e-02],
+        [0.0000e+00, 8.9521e-01],
+        [0.0000e+00, 4.0490e-05],
+        ...,
+        [0.0000e+00, 3.2641e-04],
+        [0.0000e+00, 1.8275e-04],
+        [0.0000e+00, 1.8872e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.8870e-02, 8.9521e-01, 4.0490e-05,  ..., 3.2641e-04, 1.8275e-04,
+        1.8872e-02], grad_fn=<SelectBackward0>)
+epoch: 70, train loss: 0.03675640746951103, test auc: 0.865686429476298 test acc: 0.8151389528635038
+X_example shape:  1599
+Organization  0  contribution:  0.00311905
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00005203
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3610, 1: -3610}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.3150e-02],
+        [0.0000e+00, 7.5515e-01],
+        [0.0000e+00, 1.6296e-05],
+        ...,
+        [0.0000e+00, 1.5960e-04],
+        [0.0000e+00, 1.3551e-04],
+        [0.0000e+00, 1.5572e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.3150e-02, 7.5515e-01, 1.6296e-05,  ..., 1.5960e-04, 1.3551e-04,
+        1.5572e-02], grad_fn=<SelectBackward0>)
+epoch: 71, train loss: 0.027280837297439575, test auc: 0.8667314838359241 test acc: 0.8269614616920006
+X_example shape:  1599
+Organization  0  contribution:  0.00268489
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00009694
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3663, 1: -3663}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.2749e-03],
+        [0.0000e+00, 7.8674e-01],
+        [0.0000e+00, 8.4421e-07],
+        ...,
+        [0.0000e+00, 2.4565e-05],
+        [0.0000e+00, 1.2576e-05],
+        [0.0000e+00, 3.0372e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.2749e-03, 7.8674e-01, 8.4421e-07,  ..., 2.4565e-05, 1.2576e-05,
+        3.0372e-03], grad_fn=<SelectBackward0>)
+epoch: 72, train loss: 0.040454182773828506, test auc: 0.8686686810514201 test acc: 0.8329494856440964
+X_example shape:  1599
+Organization  0  contribution:  0.00249832
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00013861
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3716, 1: -3716}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.6968e-03],
+        [0.0000e+00, 7.3027e-01],
+        [0.0000e+00, 1.0377e-06],
+        ...,
+        [0.0000e+00, 2.9593e-05],
+        [0.0000e+00, 1.4992e-05],
+        [0.0000e+00, 6.0793e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.6968e-03, 7.3027e-01, 1.0377e-06,  ..., 2.9593e-05, 1.4992e-05,
+        6.0793e-03], grad_fn=<SelectBackward0>)
+epoch: 73, train loss: 0.11099591106176376, test auc: 0.8639204702369179 test acc: 0.8295716259788116
+X_example shape:  1599
+Organization  0  contribution:  0.00232323
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00007033
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3769, 1: -3769}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 9.6512e-03],
+        [0.0000e+00, 8.6568e-01],
+        [0.0000e+00, 3.1784e-06],
+        ...,
+        [0.0000e+00, 1.3047e-04],
+        [0.0000e+00, 3.7385e-05],
+        [0.0000e+00, 1.8142e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([9.6512e-03, 8.6568e-01, 3.1784e-06,  ..., 1.3047e-04, 3.7385e-05,
+        1.8142e-02], grad_fn=<SelectBackward0>)
+epoch: 74, train loss: 0.03488096222281456, test auc: 0.8629993741000621 test acc: 0.8151389528635038
+X_example shape:  1599
+Organization  0  contribution:  0.00302960
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00001174
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3822, 1: -3822}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 9.1250e-03],
+        [0.0000e+00, 8.2842e-01],
+        [0.0000e+00, 7.5709e-06],
+        ...,
+        [0.0000e+00, 1.2038e-04],
+        [0.0000e+00, 4.6705e-05],
+        [0.0000e+00, 1.3514e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([9.1250e-03, 8.2842e-01, 7.5709e-06,  ..., 1.2038e-04, 4.6705e-05,
+        1.3514e-02], grad_fn=<SelectBackward0>)
+epoch: 75, train loss: 0.1574871987104416, test auc: 0.8623874735507006 test acc: 0.8205128205128205
+X_example shape:  1599
+Organization  0  contribution:  0.00279499
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00005106
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3875, 1: -3875}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.8403e-03],
+        [0.0000e+00, 9.0377e-01],
+        [0.0000e+00, 2.0831e-06],
+        ...,
+        [0.0000e+00, 5.7800e-05],
+        [0.0000e+00, 1.5769e-05],
+        [0.0000e+00, 1.2594e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.8403e-03, 9.0377e-01, 2.0831e-06,  ..., 5.7800e-05, 1.5769e-05,
+        1.2594e-02], grad_fn=<SelectBackward0>)
+epoch: 76, train loss: 0.0733727514743805, test auc: 0.8643849954043825 test acc: 0.8157531091662829
+X_example shape:  1599
+Organization  0  contribution:  0.00298047
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00000951
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3928, 1: -3928}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.7049e-03],
+        [0.0000e+00, 9.0188e-01],
+        [0.0000e+00, 5.8508e-06],
+        ...,
+        [0.0000e+00, 4.0259e-05],
+        [0.0000e+00, 3.5021e-05],
+        [0.0000e+00, 1.1357e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.7049e-03, 9.0188e-01, 5.8508e-06,  ..., 4.0259e-05, 3.5021e-05,
+        1.1357e-02], grad_fn=<SelectBackward0>)
+epoch: 77, train loss: 0.043641481548547745, test auc: 0.8673412208434097 test acc: 0.8162137263933671
+X_example shape:  1599
+Organization  0  contribution:  0.00301108
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00004668
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -3981, 1: -3981}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 1.0514e-02],
+        [0.0000e+00, 7.8263e-01],
+        [0.0000e+00, 6.9266e-06],
+        ...,
+        [0.0000e+00, 9.5982e-05],
+        [0.0000e+00, 4.9012e-05],
+        [0.0000e+00, 1.5334e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([1.0514e-02, 7.8263e-01, 6.9266e-06,  ..., 9.5982e-05, 4.9012e-05,
+        1.5334e-02], grad_fn=<SelectBackward0>)
+epoch: 78, train loss: 0.12785173952579498, test auc: 0.8618649145540952 test acc: 0.82081989866421
+X_example shape:  1599
+Organization  0  contribution:  0.00261954
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00001282
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4034, 1: -4034}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 9.8157e-03],
+        [0.0000e+00, 9.2170e-01],
+        [0.0000e+00, 5.0885e-06],
+        ...,
+        [0.0000e+00, 8.7955e-05],
+        [0.0000e+00, 4.6722e-05],
+        [0.0000e+00, 1.4584e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([9.8157e-03, 9.2170e-01, 5.0885e-06,  ..., 8.7955e-05, 4.6722e-05,
+        1.4584e-02], grad_fn=<SelectBackward0>)
+epoch: 79, train loss: 0.09577422589063644, test auc: 0.8652219679424182 test acc: 0.8096115461384923
+X_example shape:  1599
+Organization  0  contribution:  0.00327298
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00002956
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4087, 1: -4087}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.4937e-03],
+        [0.0000e+00, 8.6946e-01],
+        [0.0000e+00, 1.9687e-06],
+        ...,
+        [0.0000e+00, 4.1267e-05],
+        [0.0000e+00, 1.6329e-05],
+        [0.0000e+00, 9.0199e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.4937e-03, 8.6946e-01, 1.9687e-06,  ..., 4.1267e-05, 1.6329e-05,
+        9.0199e-03], grad_fn=<SelectBackward0>)
+epoch: 80, train loss: 0.1267714947462082, test auc: 0.8646010950576304 test acc: 0.8200522032857362
+X_example shape:  1599
+Organization  0  contribution:  0.00298082
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00002275
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4140, 1: -4140}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.7808e-03],
+        [0.0000e+00, 8.0023e-01],
+        [0.0000e+00, 1.7945e-06],
+        ...,
+        [0.0000e+00, 4.5941e-05],
+        [0.0000e+00, 1.2496e-05],
+        [0.0000e+00, 8.3773e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.7808e-03, 8.0023e-01, 1.7945e-06,  ..., 4.5941e-05, 1.2496e-05,
+        8.3773e-03], grad_fn=<SelectBackward0>)
+epoch: 81, train loss: 0.08361353725194931, test auc: 0.8630344362051678 test acc: 0.8218946721940734
+X_example shape:  1599
+Organization  0  contribution:  0.00273631
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00004582
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4193, 1: -4193}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.3421e-03],
+        [0.0000e+00, 7.2917e-01],
+        [0.0000e+00, 1.9225e-06],
+        ...,
+        [0.0000e+00, 2.9691e-05],
+        [0.0000e+00, 2.4704e-05],
+        [0.0000e+00, 4.6509e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.3421e-03, 7.2917e-01, 1.9225e-06,  ..., 2.9691e-05, 2.4704e-05,
+        4.6509e-03], grad_fn=<SelectBackward0>)
+epoch: 82, train loss: 0.05433104559779167, test auc: 0.86448101848352 test acc: 0.8298787041302012
+X_example shape:  1599
+Organization  0  contribution:  0.00238348
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00010001
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4246, 1: -4246}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 9.4382e-03],
+        [0.0000e+00, 8.2255e-01],
+        [0.0000e+00, 7.6419e-06],
+        ...,
+        [0.0000e+00, 1.3429e-04],
+        [0.0000e+00, 9.2026e-05],
+        [0.0000e+00, 1.3525e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([9.4382e-03, 8.2255e-01, 7.6419e-06,  ..., 1.3429e-04, 9.2026e-05,
+        1.3525e-02], grad_fn=<SelectBackward0>)
+epoch: 83, train loss: 0.11420924216508865, test auc: 0.8635109244865342 test acc: 0.8226623675725472
+X_example shape:  1599
+Organization  0  contribution:  0.00283378
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00010044
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4299, 1: -4299}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.2149e-03],
+        [0.0000e+00, 7.4657e-01],
+        [0.0000e+00, 3.2402e-07],
+        ...,
+        [0.0000e+00, 1.3385e-05],
+        [0.0000e+00, 4.4213e-06],
+        [0.0000e+00, 2.9837e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.2149e-03, 7.4657e-01, 3.2402e-07,  ..., 1.3385e-05, 4.4213e-06,
+        2.9837e-03], grad_fn=<SelectBackward0>)
+epoch: 84, train loss: 0.06187448278069496, test auc: 0.8616285157873651 test acc: 0.8281897742975587
+X_example shape:  1599
+Organization  0  contribution:  0.00240523
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00013003
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4352, 1: -4352}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 8.8399e-03],
+        [0.0000e+00, 8.8875e-01],
+        [0.0000e+00, 2.2608e-06],
+        ...,
+        [0.0000e+00, 5.0639e-05],
+        [0.0000e+00, 2.7668e-05],
+        [0.0000e+00, 6.3162e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([8.8399e-03, 8.8875e-01, 2.2608e-06,  ..., 5.0639e-05, 2.7668e-05,
+        6.3162e-03], grad_fn=<SelectBackward0>)
+epoch: 85, train loss: 0.13456059992313385, test auc: 0.8655347270106495 test acc: 0.8160601873176724
+X_example shape:  1599
+Organization  0  contribution:  0.00316069
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00006148
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4405, 1: -4405}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.5014e-03],
+        [0.0000e+00, 8.6583e-01],
+        [0.0000e+00, 1.0513e-06],
+        ...,
+        [0.0000e+00, 2.8182e-05],
+        [0.0000e+00, 1.7223e-05],
+        [0.0000e+00, 6.9229e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.5014e-03, 8.6583e-01, 1.0513e-06,  ..., 2.8182e-05, 1.7223e-05,
+        6.9229e-03], grad_fn=<SelectBackward0>)
+epoch: 86, train loss: 0.06963680684566498, test auc: 0.8669687098392539 test acc: 0.8146783356364194
+X_example shape:  1599
+Organization  0  contribution:  0.00313445
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00004178
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4458, 1: -4458}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.1027e-03],
+        [0.0000e+00, 8.4968e-01],
+        [0.0000e+00, 3.2702e-06],
+        ...,
+        [0.0000e+00, 8.4293e-05],
+        [0.0000e+00, 4.8006e-05],
+        [0.0000e+00, 9.6716e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.1027e-03, 8.4968e-01, 3.2702e-06,  ..., 8.4293e-05, 4.8006e-05,
+        9.6716e-03], grad_fn=<SelectBackward0>)
+epoch: 87, train loss: 0.03442981839179993, test auc: 0.8657680077317351 test acc: 0.81759557807462
+X_example shape:  1599
+Organization  0  contribution:  0.00305030
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00003504
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4511, 1: -4511}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.8727e-03],
+        [0.0000e+00, 8.3375e-01],
+        [0.0000e+00, 7.2596e-07],
+        ...,
+        [0.0000e+00, 2.9805e-05],
+        [0.0000e+00, 7.2755e-06],
+        [0.0000e+00, 5.1800e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.8727e-03, 8.3375e-01, 7.2596e-07,  ..., 2.9805e-05, 7.2755e-06,
+        5.1800e-03], grad_fn=<SelectBackward0>)
+epoch: 88, train loss: 0.1277051866054535, test auc: 0.8608341141174161 test acc: 0.8240442192538001
+X_example shape:  1599
+Organization  0  contribution:  0.00255159
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00005606
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4564, 1: -4564}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 7.5745e-03],
+        [0.0000e+00, 8.7321e-01],
+        [0.0000e+00, 5.1417e-06],
+        ...,
+        [0.0000e+00, 9.5088e-05],
+        [0.0000e+00, 4.5118e-05],
+        [0.0000e+00, 1.0569e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([7.5745e-03, 8.7321e-01, 5.1417e-06,  ..., 9.5088e-05, 4.5118e-05,
+        1.0569e-02], grad_fn=<SelectBackward0>)
+epoch: 89, train loss: 0.05894791707396507, test auc: 0.8652003961572442 test acc: 0.8139106402579457
+X_example shape:  1599
+Organization  0  contribution:  0.00312379
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00001032
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4617, 1: -4617}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 9.1727e-03],
+        [0.0000e+00, 8.6066e-01],
+        [0.0000e+00, 7.2715e-06],
+        ...,
+        [0.0000e+00, 1.0782e-04],
+        [0.0000e+00, 4.3474e-05],
+        [0.0000e+00, 1.4700e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([9.1727e-03, 8.6066e-01, 7.2715e-06,  ..., 1.0782e-04, 4.3474e-05,
+        1.4700e-02], grad_fn=<SelectBackward0>)
+epoch: 90, train loss: 0.04306504502892494, test auc: 0.8640612913596029 test acc: 0.8183632734530938
+X_example shape:  1599
+Organization  0  contribution:  0.00291368
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00003201
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4670, 1: -4670}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 4.7204e-03],
+        [0.0000e+00, 7.2463e-01],
+        [0.0000e+00, 7.8871e-07],
+        ...,
+        [0.0000e+00, 3.1335e-05],
+        [0.0000e+00, 7.1578e-06],
+        [0.0000e+00, 5.9376e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([4.7204e-03, 7.2463e-01, 7.8871e-07,  ..., 3.1335e-05, 7.1578e-06,
+        5.9376e-03], grad_fn=<SelectBackward0>)
+epoch: 91, train loss: 0.08611389249563217, test auc: 0.8616641505947322 test acc: 0.8275756179947796
+X_example shape:  1599
+Organization  0  contribution:  0.00251352
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00000894
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4723, 1: -4723}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.6896e-03],
+        [0.0000e+00, 7.8886e-01],
+        [0.0000e+00, 2.4975e-06],
+        ...,
+        [0.0000e+00, 1.2320e-04],
+        [0.0000e+00, 3.1566e-05],
+        [0.0000e+00, 1.2442e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.6896e-03, 7.8886e-01, 2.4975e-06,  ..., 1.2320e-04, 3.1566e-05,
+        1.2442e-02], grad_fn=<SelectBackward0>)
+epoch: 92, train loss: 0.128214031457901, test auc: 0.8607911614478218 test acc: 0.8195915860586519
+X_example shape:  1599
+Organization  0  contribution:  0.00285243
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00004250
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4776, 1: -4776}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 4.0169e-03],
+        [0.0000e+00, 6.9504e-01],
+        [0.0000e+00, 8.7651e-07],
+        ...,
+        [0.0000e+00, 2.3566e-05],
+        [0.0000e+00, 1.1718e-05],
+        [0.0000e+00, 4.0826e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([4.0169e-03, 6.9504e-01, 8.7651e-07,  ..., 2.3566e-05, 1.1718e-05,
+        4.0826e-03], grad_fn=<SelectBackward0>)
+epoch: 93, train loss: 0.044136691838502884, test auc: 0.8644094943344474 test acc: 0.8291110087517273
+X_example shape:  1599
+Organization  0  contribution:  0.00252317
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00013468
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4829, 1: -4829}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 2.9474e-03],
+        [0.0000e+00, 8.8327e-01],
+        [0.0000e+00, 9.7004e-07],
+        ...,
+        [0.0000e+00, 2.0696e-05],
+        [0.0000e+00, 6.4246e-06],
+        [0.0000e+00, 3.8202e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([2.9474e-03, 8.8327e-01, 9.7004e-07,  ..., 2.0696e-05, 6.4246e-06,
+        3.8202e-03], grad_fn=<SelectBackward0>)
+epoch: 94, train loss: 0.028135737404227257, test auc: 0.8642993445995323 test acc: 0.8254260709350529
+X_example shape:  1599
+Organization  0  contribution:  0.00274296
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00008176
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4882, 1: -4882}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 4.7841e-03],
+        [0.0000e+00, 8.5975e-01],
+        [0.0000e+00, 1.3214e-06],
+        ...,
+        [0.0000e+00, 4.1628e-05],
+        [0.0000e+00, 1.9347e-05],
+        [0.0000e+00, 7.0455e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([4.7841e-03, 8.5975e-01, 1.3214e-06,  ..., 4.1628e-05, 1.9347e-05,
+        7.0455e-03], grad_fn=<SelectBackward0>)
+epoch: 95, train loss: 0.01420253049582243, test auc: 0.8623818101616727 test acc: 0.8212805158912944
+X_example shape:  1599
+Organization  0  contribution:  0.00276882
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00000752
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4935, 1: -4935}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 3.4654e-03],
+        [0.0000e+00, 8.9680e-01],
+        [0.0000e+00, 5.8157e-07],
+        ...,
+        [0.0000e+00, 2.7625e-05],
+        [0.0000e+00, 6.9120e-06],
+        [0.0000e+00, 6.4786e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([3.4654e-03, 8.9680e-01, 5.8157e-07,  ..., 2.7625e-05, 6.9120e-06,
+        6.4786e-03], grad_fn=<SelectBackward0>)
+epoch: 96, train loss: 0.04524391517043114, test auc: 0.8624283263120037 test acc: 0.8174420389989252
+X_example shape:  1599
+Organization  0  contribution:  0.00297079
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00001317
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -4988, 1: -4988}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.5348e-03],
+        [0.0000e+00, 8.5077e-01],
+        [0.0000e+00, 2.0093e-06],
+        ...,
+        [0.0000e+00, 4.6556e-05],
+        [0.0000e+00, 1.1609e-05],
+        [0.0000e+00, 1.0263e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.5348e-03, 8.5077e-01, 2.0093e-06,  ..., 4.6556e-05, 1.1609e-05,
+        1.0263e-02], grad_fn=<SelectBackward0>)
+epoch: 97, train loss: 0.07927103340625763, test auc: 0.8592874362105132 test acc: 0.8200522032857362
+X_example shape:  1599
+Organization  0  contribution:  0.00274633
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00001908
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -5041, 1: -5041}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.2214e-03],
+        [0.0000e+00, 8.3311e-01],
+        [0.0000e+00, 5.0118e-06],
+        ...,
+        [0.0000e+00, 1.4392e-04],
+        [0.0000e+00, 4.0376e-05],
+        [0.0000e+00, 1.7781e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.2214e-03, 8.3311e-01, 5.0118e-06,  ..., 1.4392e-04, 4.0376e-05,
+        1.7781e-02], grad_fn=<SelectBackward0>)
+epoch: 98, train loss: 0.026535851880908012, test auc: 0.8615302018991826 test acc: 0.8225088284968525
+X_example shape:  1599
+Organization  0  contribution:  0.00266710
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00002163
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -5094, 1: -5094}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 5.4951e-03],
+        [0.0000e+00, 7.7757e-01],
+        [0.0000e+00, 1.8259e-06],
+        ...,
+        [0.0000e+00, 5.9049e-05],
+        [0.0000e+00, 2.1570e-05],
+        [0.0000e+00, 8.5637e-03]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([5.4951e-03, 7.7757e-01, 1.8259e-06,  ..., 5.9049e-05, 2.1570e-05,
+        8.5637e-03], grad_fn=<SelectBackward0>)
+epoch: 99, train loss: 0.0921475887298584, test auc: 0.8631401952227468 test acc: 0.822201750345463
+X_example shape:  1599
+Organization  0  contribution:  0.00267355
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  0.00001836
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -5147, 1: -5147}
+organization_outputs_for_test_cat shape:  torch.Size([6513, 128])
+outputs shape:  torch.Size([6513, 2])
+outputs:  tensor([[0.0000e+00, 6.6860e-03],
+        [0.0000e+00, 7.7791e-01],
+        [0.0000e+00, 3.3688e-06],
+        ...,
+        [0.0000e+00, 7.7569e-05],
+        [0.0000e+00, 3.4917e-05],
+        [0.0000e+00, 1.2062e-02]], grad_fn=<CatBackward0>)
+y_test shape:  torch.Size([6513])
+y_test:  tensor([0., 1., 0.,  ..., 0., 1., 0.])
+log_probs shape:  torch.Size([6513])
+log_probs:  tensor([6.6860e-03, 7.7791e-01, 3.3688e-06,  ..., 7.7569e-05, 3.4917e-05,
+        1.2062e-02], grad_fn=<SelectBackward0>)
+epoch: 100, train loss: 0.04055017605423927, test auc: 0.8606337955931452 test acc: 0.8225088284968525
+X_example shape:  1599
+Organization  0  contribution:  0.00255106
+HERE:  <class 'list'> <class 'torch.Tensor'>
+Organization  1  contribution:  -0.00000721
+HERE:  <class 'list'> <class 'torch.Tensor'>
+sorted_organizations:  [1 0]
+tokens per organization:  {0: -5200, 1: -5200}
+attributions across epochs:  [[0.002319569975597778, 0.00042423342775952386], [0.001133621630489596, 0.0002574612169128225], [0.0011444241171428605, 7.096255977713596e-05], [0.0031341038098170898, 0.00010735710048954494], [0.0024706454875204954, 2.7746379112637718e-05], [0.0027326545488476593, 3.952860552107269e-05], [0.002012605754393595, 6.072086326509068e-06], [0.003036401458922204, 3.489178060736786e-05], [0.0027750028885462174, 3.494422138641738e-05], [0.0020241838792453694, -3.026455393530372e-05], [0.0030026683162451594, 2.58648625005042e-05], [0.002547187877851028, -3.735539824619485e-05], [0.0025814100435802576, 4.545727610556331e-06], [0.003085267392912729, 3.8523036683677014e-05], [0.003359686674441249, 2.06529070625611e-05], [0.0028468818217258825, 5.6118317389737905e-05], [0.002594627042137185, 2.399023284432035e-05], [0.0030173075762306685, 3.7904722093352514e-05], [0.002252492853655679, 2.301757480473105e-05], [0.002538074500441241, 1.3518689985273723e-05], [0.0028007097225942242, -2.5358304666768966e-05], [0.0028269743466270356, -4.130089965681352e-05], [0.002825240310576919, -5.386981646096203e-05], [0.002808680162809429, -6.73252915708409e-05], [0.00330332473507809, -4.5777417910823594e-05], [0.0029802611795762966, -7.775150773102828e-05], [0.0033215530588967318, -6.35096792773122e-05], [0.0023983894852659944, -0.00011423221711939583], [0.002926908393321354, -9.456056087288147e-05], [0.00290835117884273, -0.00011468279904050986], [0.002940044746042585, -0.00013949101501531958], [0.002119186975217482, -0.00022529215780363882], [0.003302155888219999, -0.00012589050376913305], [0.0031285620057941504, -0.0001817396911223776], [0.0026624843760071704, -0.00016880773637250378], [0.002675412397250302, -0.00026643332738484276], [0.0027136420780590324, -0.00020947321357507443], [0.0025740649138378227, -0.00023816398733686285], [0.0027737440280532137, -0.0001379642411561722], [0.0032896806653413984, -7.426876953289844e-05], [0.0029815795907397616, -0.00011935379302817006], [0.0032096847079225526, -0.00010825589018123366], [0.0023419134973492344, -0.000175052058542982], [0.0024724310589574255, -0.00018941496049990032], [0.0031525828020358545, -0.00014605171990819544], [0.0034266847165331502, -0.000133801146271789], [0.0032755207843797656, -0.00015532956140638888], [0.003354429994066081, -0.0002638306001862079], [0.0026735947604524237, -0.0002379640511161041], [0.0026765874829814996, -0.00027493197569395387], [0.0025061058061554143, -0.00021508133314646145], [0.002850974832441147, -0.00014628282302003883], [0.0026703780749603757, -0.00019136825720027616], [0.0031462751182504242, -8.07146223465736e-05], [0.0027870051921397533, -6.812726532967279e-05], [0.002434860511542701, -0.00016975506936910917], [0.0026541212704476857, -0.0001218462207897443], [0.0028762181138732574, -0.00012753574119380565], [0.0030901439778273634, -9.679602650615883e-05], [0.0029315231133672454, -8.827897757340142e-05], [0.002992044833119123, -5.922719648930981e-05], [0.002760413118586891, -0.00011621607355024084], [0.0031459938659896564, -7.992188924298947e-05], [0.0025196292867723786, -0.00011785055525771877], [0.00256575108153542, -0.00012924695082077388], [0.0021785594821437586, -0.00010876503007739437], [0.002389728535824153, -0.00015253738902986838], [0.0024268106610936587, -0.00011584994780650015], [0.002930068818057367, -7.257480440053846e-05], [0.0031190469231242796, -5.202878341357985e-05], [0.0026848934499928484, -9.694204809142834e-05], [0.002498322321549968, -0.00013861297085979122], [0.002323233782086287, -7.033476899137079e-05], [0.0030295961644000134, 1.1737770879744473e-05], [0.002794994679941258, -5.1060838167151105e-05], [0.0029804738547725327, 9.51042061273101e-06], [0.003011080198292334, 4.667576403515328e-05], [0.0026195383930647004, -1.2820662207836556e-05], [0.003272981067319829, 2.9558921315711697e-05], [0.002980821821027967, -2.2751191817232274e-05], [0.002736310437877021, -4.582473927627419e-05], [0.002383484004225233, -0.00010000878424476938], [0.0028337802415540126, -0.00010043912783227163], [0.002405232954557448, -0.00013003287008874991], [0.00316068835438199, -6.147754565126057e-05], [0.003134452183169964, -4.177671870435991e-05], [0.003050302886135929, -3.504099794970699e-05], [0.002551587146523817, -5.6059720581083083e-05], [0.0031237882210675373, 1.0324019404395527e-05], [0.002913681883225081, 3.200738762118251e-05], [0.0025135158388608202, -8.93693505745692e-06], [0.0028524297019440347, -4.24991061759585e-05], [0.0025231699654702593, -0.00013467989460673032], [0.002742956841253588, -8.176292935734936e-05], [0.0027688209755099016, -7.519550017635971e-06], [0.002970794459690647, -1.3172564088141115e-05], [0.0027463274014952422, -1.908305875990189e-05], [0.0026671041062521065, -2.163328816538289e-05], [0.0026735467572911423, 1.835735804964425e-05], [0.002551064310931993, -7.212818150998406e-06]]
+Elapsed time: 0:10:40
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+[array(0.2663916, dtype=float32), array(0.21929108, dtype=float32), array(0.24249001, dtype=float32), array(0.10786721, dtype=float32), array(0.19434877, dtype=float32), array(0.04237072, dtype=float32), array(0.02807176, dtype=float32), array(0.10421064, dtype=float32), array(0.05016616, dtype=float32), array(0.21577877, dtype=float32), array(0.12861717, dtype=float32), array(0.04531227, dtype=float32), array(0.09225105, dtype=float32), array(0.06615735, dtype=float32), array(0.1043606, dtype=float32), array(0.13076602, dtype=float32), array(0.07481562, dtype=float32), array(0.05545644, dtype=float32), array(0.0466365, dtype=float32), array(0.10636011, dtype=float32), array(0.04722716, dtype=float32), array(0.1090672, dtype=float32), array(0.09520966, dtype=float32), array(0.06892966, dtype=float32), array(0.10135328, dtype=float32), array(0.08280761, dtype=float32), array(0.0940657, dtype=float32), array(0.01061816, dtype=float32), array(0.04544942, dtype=float32), array(0.18415464, dtype=float32), array(0.02103919, dtype=float32), array(0.04733127, dtype=float32), array(0.07840332, dtype=float32), array(0.05720058, dtype=float32), array(0.0397259, dtype=float32), array(0.04878774, dtype=float32), array(0.06334449, dtype=float32), array(0.02344494, dtype=float32), array(0.12133858, dtype=float32), array(0.04652177, dtype=float32), array(0.03485839, dtype=float32), array(0.08505229, dtype=float32), array(0.07849888, dtype=float32), array(0.06082791, dtype=float32), array(0.05231273, dtype=float32), array(0.10641, dtype=float32), array(0.07277442, dtype=float32), array(0.043867, dtype=float32), array(0.15439256, dtype=float32), array(0.06067174, dtype=float32), array(0.01833872, dtype=float32), array(0.15324049, dtype=float32), array(0.08213542, dtype=float32), array(0.11808181, dtype=float32), array(0.08462705, dtype=float32), array(0.04121609, dtype=float32), array(0.08587381, dtype=float32), array(0.09223237, dtype=float32), array(0.12116589, dtype=float32), array(0.13455679, dtype=float32), array(0.0328491, dtype=float32), array(0.039101, dtype=float32), array(0.04388383, dtype=float32), array(0.08316722, dtype=float32), array(0.03729045, dtype=float32), array(0.08621315, dtype=float32), array(0.07970986, dtype=float32), array(0.08973099, dtype=float32), array(0.05258129, dtype=float32), array(0.03675641, dtype=float32), array(0.02728084, dtype=float32), array(0.04045418, dtype=float32), array(0.11099591, dtype=float32), array(0.03488096, dtype=float32), array(0.1574872, dtype=float32), array(0.07337275, dtype=float32), array(0.04364148, dtype=float32), array(0.12785174, dtype=float32), array(0.09577423, dtype=float32), array(0.1267715, dtype=float32), array(0.08361354, dtype=float32), array(0.05433105, dtype=float32), array(0.11420924, dtype=float32), array(0.06187448, dtype=float32), array(0.1345606, dtype=float32), array(0.06963681, dtype=float32), array(0.03442982, dtype=float32), array(0.12770519, dtype=float32), array(0.05894792, dtype=float32), array(0.04306505, dtype=float32), array(0.08611389, dtype=float32), array(0.12821403, dtype=float32), array(0.04413669, dtype=float32), array(0.02813574, dtype=float32), array(0.01420253, dtype=float32), array(0.04524392, dtype=float32), array(0.07927103, dtype=float32), array(0.02653585, dtype=float32), array(0.09214759, dtype=float32), array(0.04055018, dtype=float32)]
+[0.915146269430197, 0.892142474068678, 0.8811067560285821, 0.8827295397026479, 0.8814555953392724, 0.8846516557585976, 0.8742662093193674, 0.8776253626159818, 0.8792204656807534, 0.8775944366938738, 0.8793438512012621, 0.8771017854820231, 0.8807072643845626, 0.8787432774299565, 0.8799619878419127, 0.8787369777050829, 0.8783963471268037, 0.8824954953785472, 0.8789186515890707, 0.8727339762361651, 0.8773150852575493, 0.8761696807350341, 0.874596403989775, 0.8731768023512864, 0.8770277159895672, 0.8760986020210535, 0.8746753096346591, 0.8794568008138989, 0.872395191031839, 0.8759213824879867, 0.877453170136097, 0.8774251077252954, 0.8741804312473482, 0.875605759908449, 0.875011549495602, 0.8682880249484377, 0.8684381365744718, 0.8699477161015622, 0.871239032433529, 0.8741714589119217, 0.871184880253048, 0.8738266285170601, 0.8696590741618884, 0.8740851717712256, 0.8742242747871266, 0.873181765770884, 0.8663066660252401, 0.8693968401598171, 0.8674128086260668, 0.8691004349228239, 0.8725603838174195, 0.8733512856402162, 0.8675959460825002, 0.8739846307075826, 0.8682462813169504, 0.8678750429844865, 0.8661514637124395, 0.8657872887078641, 0.8700443118829612, 0.8693132892632579, 0.8693731684663517, 0.8683933385309245, 0.8675037410184379, 0.8682028195786795, 0.8669741186939436, 0.864139306134303, 0.8665107389310016, 0.8645283618704507, 0.8662128701215631, 0.865686429476298, 0.8667314838359241, 0.8686686810514201, 0.8639204702369179, 0.8629993741000621, 0.8623874735507006, 0.8643849954043825, 0.8673412208434097, 0.8618649145540952, 0.8652219679424182, 0.8646010950576304, 0.8630344362051678, 0.86448101848352, 0.8635109244865342, 0.8616285157873651, 0.8655347270106495, 0.8669687098392539, 0.8657680077317351, 0.8608341141174161, 0.8652003961572442, 0.8640612913596029, 0.8616641505947322, 0.8607911614478218, 0.8644094943344474, 0.8642993445995323, 0.8623818101616727, 0.8624283263120037, 0.8592874362105132, 0.8615302018991826, 0.8631401952227468, 0.8606337955931452]

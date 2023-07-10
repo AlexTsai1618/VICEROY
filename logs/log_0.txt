@@ -1,0 +1,914 @@
+
+
+=================================
+
+Dataset: ADULT 
+Number of attributes: 16 
+Number of labels: 1 
+Number of rows: 32561 
+Postive ratio: 0.2408095574460244
+(5,)
+
+The current vertical FL has a non-configurable structure.
+Reconfigurable vertical FL can be achieved by simply changing the attribute group split!
+Ming revised the codes on 12/11/2021 to realize re-configurable vertical FL.
+
+There are 5 participant organizations:
+The attributes held by Organization 0: [3, 'age', 0]
+The attributes held by Organization 1: [1, 'hours-per-week', 'occupation']
+The attributes held by Organization 2: [4, 2, 'marital-status']
+The attributes held by Organization 3: ['native-country', 'sex', 'capital-gain']
+The attributes held by Organization 4: ['race', 'fnlwgt', 'capital-loss', 'relationship', 'workclass']
+{0: array([[3, 'State-gov', 3],
+       [3, 'Self-emp-not-inc', 4],
+       [3, 'Private', 3],
+       ...,
+       [3, 'Private', 2],
+       [2, 'Private', 2],
+       [4, 'Self-emp-inc', 4]], dtype=object)}
+vertical split data for organization 0: [[3 'State-gov' 3]
+ [3 'Self-emp-not-inc' 4]
+ [3 'Private' 3]
+ ...
+ [3 'Private' 2]
+ [2 'Private' 2]
+ [4 'Self-emp-inc' 4]]
+encoded vertical split data for organization 0: [[0. 0. 0. ... 0. 1. 0.]
+ [0. 0. 0. ... 0. 0. 1.]
+ [0. 0. 0. ... 0. 1. 0.]
+ ...
+ [0. 0. 0. ... 1. 0. 0.]
+ [0. 0. 1. ... 1. 0. 0.]
+ [0. 0. 0. ... 0. 0. 1.]]
+The shape of the encoded dataset held by Organization 0: (32561, 19)
+{0: array([[3, 'State-gov', 3],
+       [3, 'Self-emp-not-inc', 4],
+       [3, 'Private', 3],
+       ...,
+       [3, 'Private', 2],
+       [2, 'Private', 2],
+       [4, 'Self-emp-inc', 4]], dtype=object), 1: array([[2, 40, 'Adm-clerical'],
+       [3, 13, 'Exec-managerial'],
+       [2, 40, 'Handlers-cleaners'],
+       ...,
+       [2, 40, 'Adm-clerical'],
+       [4, 20, 'Adm-clerical'],
+       [3, 40, 'Exec-managerial']], dtype=object)}
+vertical split data for organization 1: [[2 40 'Adm-clerical']
+ [3 13 'Exec-managerial']
+ [2 40 'Handlers-cleaners']
+ ...
+ [2 40 'Adm-clerical']
+ [4 20 'Adm-clerical']
+ [3 40 'Exec-managerial']]
+encoded vertical split data for organization 1: [[0. 0. 1. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 1. ... 0. 0. 0.]
+ ...
+ [0. 0. 1. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]]
+The shape of the encoded dataset held by Organization 1: (32561, 114)
+{0: array([[3, 'State-gov', 3],
+       [3, 'Self-emp-not-inc', 4],
+       [3, 'Private', 3],
+       ...,
+       [3, 'Private', 2],
+       [2, 'Private', 2],
+       [4, 'Self-emp-inc', 4]], dtype=object), 1: array([[2, 40, 'Adm-clerical'],
+       [3, 13, 'Exec-managerial'],
+       [2, 40, 'Handlers-cleaners'],
+       ...,
+       [2, 40, 'Adm-clerical'],
+       [4, 20, 'Adm-clerical'],
+       [3, 40, 'Exec-managerial']], dtype=object), 2: array([[0, 1, 'Never-married'],
+       [0, 2, 'Married-civ-spouse'],
+       [4, 4, 'Divorced'],
+       ...,
+       [0, 0, 'Widowed'],
+       [3, 0, 'Never-married'],
+       [1, 3, 'Married-civ-spouse']], dtype=object)}
+vertical split data for organization 2: [[0 1 'Never-married']
+ [0 2 'Married-civ-spouse']
+ [4 4 'Divorced']
+ ...
+ [0 0 'Widowed']
+ [3 0 'Never-married']
+ [1 3 'Married-civ-spouse']]
+encoded vertical split data for organization 2: [[1. 0. 0. ... 1. 0. 0.]
+ [1. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ ...
+ [1. 0. 0. ... 0. 0. 1.]
+ [0. 0. 0. ... 1. 0. 0.]
+ [0. 1. 0. ... 0. 0. 0.]]
+The shape of the encoded dataset held by Organization 2: (32561, 17)
+{0: array([[3, 'State-gov', 3],
+       [3, 'Self-emp-not-inc', 4],
+       [3, 'Private', 3],
+       ...,
+       [3, 'Private', 2],
+       [2, 'Private', 2],
+       [4, 'Self-emp-inc', 4]], dtype=object), 1: array([[2, 40, 'Adm-clerical'],
+       [3, 13, 'Exec-managerial'],
+       [2, 40, 'Handlers-cleaners'],
+       ...,
+       [2, 40, 'Adm-clerical'],
+       [4, 20, 'Adm-clerical'],
+       [3, 40, 'Exec-managerial']], dtype=object), 2: array([[0, 1, 'Never-married'],
+       [0, 2, 'Married-civ-spouse'],
+       [4, 4, 'Divorced'],
+       ...,
+       [0, 0, 'Widowed'],
+       [3, 0, 'Never-married'],
+       [1, 3, 'Married-civ-spouse']], dtype=object), 3: array([['United-States', 'Male', 2174],
+       ['United-States', 'Male', 0],
+       ['United-States', 'Male', 0],
+       ...,
+       ['United-States', 'Female', 0],
+       ['United-States', 'Male', 0],
+       ['United-States', 'Female', 15024]], dtype=object)}
+vertical split data for organization 3: [['United-States' 'Male' 2174]
+ ['United-States' 'Male' 0]
+ ['United-States' 'Male' 0]
+ ...
+ ['United-States' 'Female' 0]
+ ['United-States' 'Male' 0]
+ ['United-States' 'Female' 15024]]
+encoded vertical split data for organization 3: [[0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ ...
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]]
+The shape of the encoded dataset held by Organization 3: (32561, 163)
+{0: array([[3, 'State-gov', 3],
+       [3, 'Self-emp-not-inc', 4],
+       [3, 'Private', 3],
+       ...,
+       [3, 'Private', 2],
+       [2, 'Private', 2],
+       [4, 'Self-emp-inc', 4]], dtype=object), 1: array([[2, 40, 'Adm-clerical'],
+       [3, 13, 'Exec-managerial'],
+       [2, 40, 'Handlers-cleaners'],
+       ...,
+       [2, 40, 'Adm-clerical'],
+       [4, 20, 'Adm-clerical'],
+       [3, 40, 'Exec-managerial']], dtype=object), 2: array([[0, 1, 'Never-married'],
+       [0, 2, 'Married-civ-spouse'],
+       [4, 4, 'Divorced'],
+       ...,
+       [0, 0, 'Widowed'],
+       [3, 0, 'Never-married'],
+       [1, 3, 'Married-civ-spouse']], dtype=object), 3: array([['United-States', 'Male', 2174],
+       ['United-States', 'Male', 0],
+       ['United-States', 'Male', 0],
+       ...,
+       ['United-States', 'Female', 0],
+       ['United-States', 'Male', 0],
+       ['United-States', 'Female', 15024]], dtype=object), 4: array([['White', 'Bachelors', 0, 'Not-in-family', 77516],
+       ['White', 'Bachelors', 0, 'Husband', 83311],
+       ['White', 'HS-grad', 0, 'Not-in-family', 215646],
+       ...,
+       ['White', 'HS-grad', 0, 'Unmarried', 151910],
+       ['White', 'HS-grad', 0, 'Own-child', 201490],
+       ['White', 'HS-grad', 0, 'Wife', 287927]], dtype=object)}
+vertical split data for organization 4: [['White' 'Bachelors' 0 'Not-in-family' 77516]
+ ['White' 'Bachelors' 0 'Husband' 83311]
+ ['White' 'HS-grad' 0 'Not-in-family' 215646]
+ ...
+ ['White' 'HS-grad' 0 'Unmarried' 151910]
+ ['White' 'HS-grad' 0 'Own-child' 201490]
+ ['White' 'HS-grad' 0 'Wife' 287927]]
+encoded vertical split data for organization 4: [[0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ ...
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]]
+The shape of the encoded dataset held by Organization 4: (32561, 21767)
+X shape: (32561, 17)
+attribute groups: [[3, 'age', 0], [1, 'hours-per-week', 'occupation'], [4, 2, 'marital-status'], ['native-country', 'sex', 'capital-gain'], ['race', 'fnlwgt', 'capital-loss', 'relationship', 'workclass']]
+{0: array([[0., 0., 0., ..., 1., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 1., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 1.],
+       [0., 0., 1., ..., 0., 1., 0.],
+       [0., 1., 0., ..., 1., 0., 0.]])} {0: array([[1., 0., 0., ..., 0., 1., 0.],
+       [0., 1., 0., ..., 0., 0., 0.],
+       [0., 0., 1., ..., 0., 1., 0.],
+       ...,
+       [0., 1., 0., ..., 0., 0., 0.],
+       [0., 0., 1., ..., 0., 0., 1.],
+       [0., 1., 0., ..., 0., 0., 1.]])}
+
+Start vertical FL......
+
+For the 1-th epoch, train loss: 0.3506125211715698, test auc: 0.9140499900349808
+Organization  0  contribution:  0.00009846
+Organization  1  contribution:  -0.00003820
+Organization  2  contribution:  0.00036502
+Organization  3  contribution:  -0.00300063
+Organization  4  contribution:  -0.00155265
+type of attr_lst:  <class 'list'>
+For the 2-th epoch, train loss: 0.23114393651485443, test auc: 0.8861031378229627
+Organization  0  contribution:  0.00009666
+Organization  1  contribution:  -0.00018924
+Organization  2  contribution:  0.00024431
+Organization  3  contribution:  -0.00178461
+Organization  4  contribution:  -0.00172209
+type of attr_lst:  <class 'list'>
+For the 3-th epoch, train loss: 0.16197778284549713, test auc: 0.8800482749826087
+Organization  0  contribution:  0.00009008
+Organization  1  contribution:  -0.00021923
+Organization  2  contribution:  0.00017041
+Organization  3  contribution:  -0.00186514
+Organization  4  contribution:  -0.00175020
+type of attr_lst:  <class 'list'>
+For the 4-th epoch, train loss: 0.19210614264011383, test auc: 0.8824421068010811
+Organization  0  contribution:  0.00013997
+Organization  1  contribution:  -0.00023427
+Organization  2  contribution:  0.00015758
+Organization  3  contribution:  -0.00149422
+Organization  4  contribution:  -0.00174467
+type of attr_lst:  <class 'list'>
+For the 5-th epoch, train loss: 0.16935957968235016, test auc: 0.8770291159284279
+Organization  0  contribution:  0.00016431
+Organization  1  contribution:  -0.00029028
+Organization  2  contribution:  0.00006987
+Organization  3  contribution:  -0.00098876
+Organization  4  contribution:  -0.00191864
+type of attr_lst:  <class 'list'>
+For the 6-th epoch, train loss: 0.02761099487543106, test auc: 0.8767884537115307
+Organization  0  contribution:  0.00016816
+Organization  1  contribution:  -0.00035013
+Organization  2  contribution:  0.00000747
+Organization  3  contribution:  -0.00099926
+Organization  4  contribution:  -0.00218203
+type of attr_lst:  <class 'list'>
+For the 7-th epoch, train loss: 0.11679733544588089, test auc: 0.8757083372467988
+Organization  0  contribution:  0.00009533
+Organization  1  contribution:  -0.00039427
+Organization  2  contribution:  -0.00004105
+Organization  3  contribution:  -0.00079424
+Organization  4  contribution:  -0.00229651
+type of attr_lst:  <class 'list'>
+For the 8-th epoch, train loss: 0.08439520746469498, test auc: 0.8703100457321845
+Organization  0  contribution:  0.00012941
+Organization  1  contribution:  -0.00043352
+Organization  2  contribution:  -0.00006690
+Organization  3  contribution:  -0.00048813
+Organization  4  contribution:  -0.00215711
+type of attr_lst:  <class 'list'>
+For the 9-th epoch, train loss: 0.061626385897397995, test auc: 0.8787929116259323
+Organization  0  contribution:  0.00008757
+Organization  1  contribution:  -0.00040844
+Organization  2  contribution:  -0.00010109
+Organization  3  contribution:  -0.00058057
+Organization  4  contribution:  -0.00225160
+type of attr_lst:  <class 'list'>
+For the 10-th epoch, train loss: 0.12493631988763809, test auc: 0.8742968170735526
+Organization  0  contribution:  0.00000885
+Organization  1  contribution:  -0.00043234
+Organization  2  contribution:  -0.00017135
+Organization  3  contribution:  -0.00072535
+Organization  4  contribution:  -0.00299359
+type of attr_lst:  <class 'list'>
+For the 11-th epoch, train loss: 0.060209449380636215, test auc: 0.8765061114967306
+Organization  0  contribution:  0.00004453
+Organization  1  contribution:  -0.00032748
+Organization  2  contribution:  -0.00013656
+Organization  3  contribution:  -0.00034898
+Organization  4  contribution:  -0.00260055
+type of attr_lst:  <class 'list'>
+For the 12-th epoch, train loss: 0.11374499648809433, test auc: 0.869494008643477
+Organization  0  contribution:  0.00008768
+Organization  1  contribution:  -0.00037944
+Organization  2  contribution:  -0.00014488
+Organization  3  contribution:  0.00000145
+Organization  4  contribution:  -0.00226879
+type of attr_lst:  <class 'list'>
+For the 13-th epoch, train loss: 0.11278188973665237, test auc: 0.8693531238872076
+Organization  0  contribution:  0.00007625
+Organization  1  contribution:  -0.00045643
+Organization  2  contribution:  -0.00017017
+Organization  3  contribution:  -0.00018448
+Organization  4  contribution:  -0.00235076
+type of attr_lst:  <class 'list'>
+For the 14-th epoch, train loss: 0.0691930279135704, test auc: 0.8754005415981652
+Organization  0  contribution:  0.00006138
+Organization  1  contribution:  -0.00052623
+Organization  2  contribution:  -0.00018456
+Organization  3  contribution:  -0.00011907
+Organization  4  contribution:  -0.00238707
+type of attr_lst:  <class 'list'>
+For the 15-th epoch, train loss: 0.06163303181529045, test auc: 0.8766405692609569
+Organization  0  contribution:  -0.00000303
+Organization  1  contribution:  -0.00052292
+Organization  2  contribution:  -0.00022158
+Organization  3  contribution:  -0.00045284
+Organization  4  contribution:  -0.00246833
+type of attr_lst:  <class 'list'>
+For the 16-th epoch, train loss: 0.12933285534381866, test auc: 0.8720091897077513
+Organization  0  contribution:  0.00003278
+Organization  1  contribution:  -0.00047723
+Organization  2  contribution:  -0.00019825
+Organization  3  contribution:  -0.00030900
+Organization  4  contribution:  -0.00239689
+type of attr_lst:  <class 'list'>
+For the 17-th epoch, train loss: 0.03325841948390007, test auc: 0.8754851742656622
+Organization  0  contribution:  0.00003056
+Organization  1  contribution:  -0.00045678
+Organization  2  contribution:  -0.00022887
+Organization  3  contribution:  -0.00052178
+Organization  4  contribution:  -0.00251469
+type of attr_lst:  <class 'list'>
+For the 18-th epoch, train loss: 0.10555338859558105, test auc: 0.8695996403938868
+Organization  0  contribution:  0.00002091
+Organization  1  contribution:  -0.00053581
+Organization  2  contribution:  -0.00023250
+Organization  3  contribution:  -0.00048364
+Organization  4  contribution:  -0.00268482
+type of attr_lst:  <class 'list'>
+For the 19-th epoch, train loss: 0.11432770639657974, test auc: 0.8720054989598454
+Organization  0  contribution:  0.00014355
+Organization  1  contribution:  -0.00050088
+Organization  2  contribution:  -0.00018928
+Organization  3  contribution:  0.00016842
+Organization  4  contribution:  -0.00227739
+type of attr_lst:  <class 'list'>
+For the 20-th epoch, train loss: 0.10517513751983643, test auc: 0.8708457768807987
+Organization  0  contribution:  0.00003788
+Organization  1  contribution:  -0.00049041
+Organization  2  contribution:  -0.00024048
+Organization  3  contribution:  -0.00044099
+Organization  4  contribution:  -0.00261341
+type of attr_lst:  <class 'list'>
+For the 21-th epoch, train loss: 0.1202525869011879, test auc: 0.8714214062869471
+Organization  0  contribution:  0.00003796
+Organization  1  contribution:  -0.00046159
+Organization  2  contribution:  -0.00022436
+Organization  3  contribution:  -0.00021865
+Organization  4  contribution:  -0.00256513
+type of attr_lst:  <class 'list'>
+For the 22-th epoch, train loss: 0.10854333639144897, test auc: 0.8733587307696126
+Organization  0  contribution:  0.00009340
+Organization  1  contribution:  -0.00055128
+Organization  2  contribution:  -0.00020860
+Organization  3  contribution:  -0.00019230
+Organization  4  contribution:  -0.00231360
+type of attr_lst:  <class 'list'>
+For the 23-th epoch, train loss: 0.10462874919176102, test auc: 0.8673825190398049
+Organization  0  contribution:  0.00005860
+Organization  1  contribution:  -0.00053144
+Organization  2  contribution:  -0.00023244
+Organization  3  contribution:  -0.00012701
+Organization  4  contribution:  -0.00240433
+type of attr_lst:  <class 'list'>
+For the 24-th epoch, train loss: 0.039443086832761765, test auc: 0.8679213682340637
+Organization  0  contribution:  0.00007236
+Organization  1  contribution:  -0.00052484
+Organization  2  contribution:  -0.00023385
+Organization  3  contribution:  -0.00016560
+Organization  4  contribution:  -0.00246730
+type of attr_lst:  <class 'list'>
+For the 25-th epoch, train loss: 0.08418149501085281, test auc: 0.8729013325636213
+Organization  0  contribution:  0.00003905
+Organization  1  contribution:  -0.00051038
+Organization  2  contribution:  -0.00026447
+Organization  3  contribution:  -0.00008701
+Organization  4  contribution:  -0.00232496
+type of attr_lst:  <class 'list'>
+For the 26-th epoch, train loss: 0.0465104877948761, test auc: 0.8758790025206535
+Organization  0  contribution:  0.00004012
+Organization  1  contribution:  -0.00049083
+Organization  2  contribution:  -0.00029862
+Organization  3  contribution:  -0.00017802
+Organization  4  contribution:  -0.00246386
+type of attr_lst:  <class 'list'>
+For the 27-th epoch, train loss: 0.042253926396369934, test auc: 0.8701634339533026
+Organization  0  contribution:  0.00004938
+Organization  1  contribution:  -0.00052820
+Organization  2  contribution:  -0.00029672
+Organization  3  contribution:  -0.00016735
+Organization  4  contribution:  -0.00254344
+type of attr_lst:  <class 'list'>
+For the 28-th epoch, train loss: 0.07101533561944962, test auc: 0.8666691229230316
+Organization  0  contribution:  0.00006516
+Organization  1  contribution:  -0.00048691
+Organization  2  contribution:  -0.00026445
+Organization  3  contribution:  -0.00022134
+Organization  4  contribution:  -0.00264208
+type of attr_lst:  <class 'list'>
+For the 29-th epoch, train loss: 0.03806523233652115, test auc: 0.8701178723067404
+Organization  0  contribution:  0.00006782
+Organization  1  contribution:  -0.00041784
+Organization  2  contribution:  -0.00027374
+Organization  3  contribution:  -0.00023623
+Organization  4  contribution:  -0.00265276
+type of attr_lst:  <class 'list'>
+For the 30-th epoch, train loss: 0.022015735507011414, test auc: 0.8727372215489789
+Organization  0  contribution:  0.00004171
+Organization  1  contribution:  -0.00042739
+Organization  2  contribution:  -0.00028882
+Organization  3  contribution:  -0.00001859
+Organization  4  contribution:  -0.00279842
+type of attr_lst:  <class 'list'>
+For the 31-th epoch, train loss: 0.14160758256912231, test auc: 0.8673008135171988
+Organization  0  contribution:  0.00003492
+Organization  1  contribution:  -0.00040777
+Organization  2  contribution:  -0.00028285
+Organization  3  contribution:  -0.00030770
+Organization  4  contribution:  -0.00296039
+type of attr_lst:  <class 'list'>
+For the 32-th epoch, train loss: 0.05357900261878967, test auc: 0.8666837586474859
+Organization  0  contribution:  0.00012322
+Organization  1  contribution:  -0.00035695
+Organization  2  contribution:  -0.00027894
+Organization  3  contribution:  0.00003566
+Organization  4  contribution:  -0.00277295
+type of attr_lst:  <class 'list'>
+For the 33-th epoch, train loss: 0.032210927456617355, test auc: 0.8640862993583445
+Organization  0  contribution:  0.00006061
+Organization  1  contribution:  -0.00030731
+Organization  2  contribution:  -0.00030842
+Organization  3  contribution:  -0.00013012
+Organization  4  contribution:  -0.00294091
+type of attr_lst:  <class 'list'>
+For the 34-th epoch, train loss: 0.0788901150226593, test auc: 0.8668726867601165
+Organization  0  contribution:  0.00004607
+Organization  1  contribution:  -0.00037724
+Organization  2  contribution:  -0.00031516
+Organization  3  contribution:  -0.00015707
+Organization  4  contribution:  -0.00280322
+type of attr_lst:  <class 'list'>
+For the 35-th epoch, train loss: 0.08768228441476822, test auc: 0.8716555142446325
+Organization  0  contribution:  0.00001654
+Organization  1  contribution:  -0.00041616
+Organization  2  contribution:  -0.00029132
+Organization  3  contribution:  -0.00019171
+Organization  4  contribution:  -0.00270385
+type of attr_lst:  <class 'list'>
+For the 36-th epoch, train loss: 0.062111157923936844, test auc: 0.8721188940075745
+Organization  0  contribution:  0.00003302
+Organization  1  contribution:  -0.00038922
+Organization  2  contribution:  -0.00030988
+Organization  3  contribution:  0.00011573
+Organization  4  contribution:  -0.00254328
+type of attr_lst:  <class 'list'>
+For the 37-th epoch, train loss: 0.09744828194379807, test auc: 0.8740730813901545
+Organization  0  contribution:  0.00003237
+Organization  1  contribution:  -0.00041747
+Organization  2  contribution:  -0.00035708
+Organization  3  contribution:  -0.00010765
+Organization  4  contribution:  -0.00253057
+type of attr_lst:  <class 'list'>
+For the 38-th epoch, train loss: 0.05550621077418327, test auc: 0.8622162992081691
+Organization  0  contribution:  0.00006873
+Organization  1  contribution:  -0.00041227
+Organization  2  contribution:  -0.00028270
+Organization  3  contribution:  -0.00001907
+Organization  4  contribution:  -0.00267476
+type of attr_lst:  <class 'list'>
+For the 39-th epoch, train loss: 0.07251543551683426, test auc: 0.8644295389135914
+Organization  0  contribution:  0.00007496
+Organization  1  contribution:  -0.00037867
+Organization  2  contribution:  -0.00027412
+Organization  3  contribution:  0.00011379
+Organization  4  contribution:  -0.00272700
+type of attr_lst:  <class 'list'>
+For the 40-th epoch, train loss: 0.06562682241201401, test auc: 0.8653246089143526
+Organization  0  contribution:  0.00003554
+Organization  1  contribution:  -0.00046728
+Organization  2  contribution:  -0.00030818
+Organization  3  contribution:  -0.00005928
+Organization  4  contribution:  -0.00265819
+type of attr_lst:  <class 'list'>
+For the 41-th epoch, train loss: 0.02413332276046276, test auc: 0.865495783256884
+Organization  0  contribution:  0.00003336
+Organization  1  contribution:  -0.00045838
+Organization  2  contribution:  -0.00028936
+Organization  3  contribution:  0.00001060
+Organization  4  contribution:  -0.00261238
+type of attr_lst:  <class 'list'>
+For the 42-th epoch, train loss: 0.07399635016918182, test auc: 0.8687102337821537
+Organization  0  contribution:  0.00007446
+Organization  1  contribution:  -0.00046376
+Organization  2  contribution:  -0.00028252
+Organization  3  contribution:  0.00010984
+Organization  4  contribution:  -0.00255111
+type of attr_lst:  <class 'list'>
+For the 43-th epoch, train loss: 0.07652171701192856, test auc: 0.8678819154116215
+Organization  0  contribution:  0.00005773
+Organization  1  contribution:  -0.00052777
+Organization  2  contribution:  -0.00025481
+Organization  3  contribution:  0.00003749
+Organization  4  contribution:  -0.00257446
+type of attr_lst:  <class 'list'>
+For the 44-th epoch, train loss: 0.027872422710061073, test auc: 0.8696548743453059
+Organization  0  contribution:  0.00005974
+Organization  1  contribution:  -0.00049611
+Organization  2  contribution:  -0.00025635
+Organization  3  contribution:  -0.00003202
+Organization  4  contribution:  -0.00260135
+type of attr_lst:  <class 'list'>
+For the 45-th epoch, train loss: 0.16693411767482758, test auc: 0.8648407391371744
+Organization  0  contribution:  0.00006875
+Organization  1  contribution:  -0.00045590
+Organization  2  contribution:  -0.00023586
+Organization  3  contribution:  0.00008075
+Organization  4  contribution:  -0.00268348
+type of attr_lst:  <class 'list'>
+For the 46-th epoch, train loss: 0.021685346961021423, test auc: 0.8647386708675014
+Organization  0  contribution:  0.00006283
+Organization  1  contribution:  -0.00045358
+Organization  2  contribution:  -0.00024894
+Organization  3  contribution:  0.00006173
+Organization  4  contribution:  -0.00261838
+type of attr_lst:  <class 'list'>
+For the 47-th epoch, train loss: 0.07574564963579178, test auc: 0.8675906008613951
+Organization  0  contribution:  0.00006719
+Organization  1  contribution:  -0.00042519
+Organization  2  contribution:  -0.00026745
+Organization  3  contribution:  0.00015698
+Organization  4  contribution:  -0.00260313
+type of attr_lst:  <class 'list'>
+For the 48-th epoch, train loss: 0.03862174227833748, test auc: 0.8635091427461659
+Organization  0  contribution:  0.00001193
+Organization  1  contribution:  -0.00050230
+Organization  2  contribution:  -0.00031296
+Organization  3  contribution:  -0.00039326
+Organization  4  contribution:  -0.00271390
+type of attr_lst:  <class 'list'>
+For the 49-th epoch, train loss: 0.07569696754217148, test auc: 0.8662042159540595
+Organization  0  contribution:  0.00003481
+Organization  1  contribution:  -0.00053155
+Organization  2  contribution:  -0.00026922
+Organization  3  contribution:  -0.00009681
+Organization  4  contribution:  -0.00256997
+type of attr_lst:  <class 'list'>
+For the 50-th epoch, train loss: 0.024861954152584076, test auc: 0.8670505426290293
+Organization  0  contribution:  0.00003858
+Organization  1  contribution:  -0.00048348
+Organization  2  contribution:  -0.00028882
+Organization  3  contribution:  -0.00013842
+Organization  4  contribution:  -0.00259542
+type of attr_lst:  <class 'list'>
+For the 51-th epoch, train loss: 0.056856945157051086, test auc: 0.8631927565636134
+Organization  0  contribution:  0.00003906
+Organization  1  contribution:  -0.00048890
+Organization  2  contribution:  -0.00027294
+Organization  3  contribution:  -0.00008444
+Organization  4  contribution:  -0.00258714
+type of attr_lst:  <class 'list'>
+For the 52-th epoch, train loss: 0.08372534066438675, test auc: 0.8610378688552547
+Organization  0  contribution:  0.00004438
+Organization  1  contribution:  -0.00050711
+Organization  2  contribution:  -0.00024697
+Organization  3  contribution:  -0.00016513
+Organization  4  contribution:  -0.00249858
+type of attr_lst:  <class 'list'>
+For the 53-th epoch, train loss: 0.027618572115898132, test auc: 0.8673274759891396
+Organization  0  contribution:  0.00006012
+Organization  1  contribution:  -0.00050317
+Organization  2  contribution:  -0.00028735
+Organization  3  contribution:  -0.00002173
+Organization  4  contribution:  -0.00233059
+type of attr_lst:  <class 'list'>
+For the 54-th epoch, train loss: 0.060546938329935074, test auc: 0.866112774493012
+Organization  0  contribution:  0.00003025
+Organization  1  contribution:  -0.00053582
+Organization  2  contribution:  -0.00028062
+Organization  3  contribution:  -0.00016201
+Organization  4  contribution:  -0.00238106
+type of attr_lst:  <class 'list'>
+For the 55-th epoch, train loss: 0.036157798022031784, test auc: 0.865620823250592
+Organization  0  contribution:  0.00006894
+Organization  1  contribution:  -0.00054368
+Organization  2  contribution:  -0.00026151
+Organization  3  contribution:  0.00002322
+Organization  4  contribution:  -0.00243160
+type of attr_lst:  <class 'list'>
+For the 56-th epoch, train loss: 0.14493747055530548, test auc: 0.8614913217790017
+Organization  0  contribution:  0.00002900
+Organization  1  contribution:  -0.00054076
+Organization  2  contribution:  -0.00023928
+Organization  3  contribution:  -0.00016381
+Organization  4  contribution:  -0.00248991
+type of attr_lst:  <class 'list'>
+For the 57-th epoch, train loss: 0.07539436966180801, test auc: 0.8658182782635566
+Organization  0  contribution:  0.00002226
+Organization  1  contribution:  -0.00058602
+Organization  2  contribution:  -0.00023808
+Organization  3  contribution:  -0.00033096
+Organization  4  contribution:  -0.00241601
+type of attr_lst:  <class 'list'>
+For the 58-th epoch, train loss: 0.032936763018369675, test auc: 0.8584409186347898
+Organization  0  contribution:  0.00002410
+Organization  1  contribution:  -0.00055667
+Organization  2  contribution:  -0.00023206
+Organization  3  contribution:  -0.00007976
+Organization  4  contribution:  -0.00269452
+type of attr_lst:  <class 'list'>
+For the 59-th epoch, train loss: 0.11044026166200638, test auc: 0.8646887185036027
+Organization  0  contribution:  -0.00000199
+Organization  1  contribution:  -0.00054955
+Organization  2  contribution:  -0.00026858
+Organization  3  contribution:  -0.00035227
+Organization  4  contribution:  -0.00252931
+type of attr_lst:  <class 'list'>
+For the 60-th epoch, train loss: 0.04922309145331383, test auc: 0.8575441941608295
+Organization  0  contribution:  -0.00001380
+Organization  1  contribution:  -0.00061753
+Organization  2  contribution:  -0.00024227
+Organization  3  contribution:  -0.00026040
+Organization  4  contribution:  -0.00258253
+type of attr_lst:  <class 'list'>
+For the 61-th epoch, train loss: 0.06926127523183823, test auc: 0.8622775783501235
+Organization  0  contribution:  -0.00003259
+Organization  1  contribution:  -0.00065848
+Organization  2  contribution:  -0.00026884
+Organization  3  contribution:  -0.00028083
+Organization  4  contribution:  -0.00259623
+type of attr_lst:  <class 'list'>
+For the 62-th epoch, train loss: 0.23274008929729462, test auc: 0.8635096518148426
+Organization  0  contribution:  0.00001973
+Organization  1  contribution:  -0.00053704
+Organization  2  contribution:  -0.00022897
+Organization  3  contribution:  -0.00025683
+Organization  4  contribution:  -0.00255020
+type of attr_lst:  <class 'list'>
+For the 63-th epoch, train loss: 0.156425341963768, test auc: 0.8624066272596604
+Organization  0  contribution:  0.00004086
+Organization  1  contribution:  -0.00050383
+Organization  2  contribution:  -0.00016684
+Organization  3  contribution:  0.00012290
+Organization  4  contribution:  -0.00267415
+type of attr_lst:  <class 'list'>
+For the 64-th epoch, train loss: 0.07112449407577515, test auc: 0.8573250400955217
+Organization  0  contribution:  0.00005215
+Organization  1  contribution:  -0.00049007
+Organization  2  contribution:  -0.00018317
+Organization  3  contribution:  0.00008227
+Organization  4  contribution:  -0.00277107
+type of attr_lst:  <class 'list'>
+For the 65-th epoch, train loss: 0.07353606820106506, test auc: 0.8636768808751298
+Organization  0  contribution:  0.00002798
+Organization  1  contribution:  -0.00051814
+Organization  2  contribution:  -0.00019807
+Organization  3  contribution:  -0.00007317
+Organization  4  contribution:  -0.00266342
+type of attr_lst:  <class 'list'>
+For the 66-th epoch, train loss: 0.051642704755067825, test auc: 0.8616557509615672
+Organization  0  contribution:  0.00004890
+Organization  1  contribution:  -0.00049954
+Organization  2  contribution:  -0.00020398
+Organization  3  contribution:  0.00018566
+Organization  4  contribution:  -0.00257607
+type of attr_lst:  <class 'list'>
+For the 67-th epoch, train loss: 0.045337170362472534, test auc: 0.8602812019009642
+Organization  0  contribution:  0.00002500
+Organization  1  contribution:  -0.00052810
+Organization  2  contribution:  -0.00023075
+Organization  3  contribution:  -0.00011884
+Organization  4  contribution:  -0.00278303
+type of attr_lst:  <class 'list'>
+For the 68-th epoch, train loss: 0.046353235840797424, test auc: 0.8642002034747501
+Organization  0  contribution:  0.00002976
+Organization  1  contribution:  -0.00051253
+Organization  2  contribution:  -0.00022433
+Organization  3  contribution:  -0.00013099
+Organization  4  contribution:  -0.00248793
+type of attr_lst:  <class 'list'>
+For the 69-th epoch, train loss: 0.013951368629932404, test auc: 0.8602352584528946
+Organization  0  contribution:  0.00003336
+Organization  1  contribution:  -0.00048749
+Organization  2  contribution:  -0.00023110
+Organization  3  contribution:  -0.00013032
+Organization  4  contribution:  -0.00260308
+type of attr_lst:  <class 'list'>
+For the 70-th epoch, train loss: 0.040568504482507706, test auc: 0.862143311486651
+Organization  0  contribution:  0.00006503
+Organization  1  contribution:  -0.00053134
+Organization  2  contribution:  -0.00025209
+Organization  3  contribution:  -0.00015750
+Organization  4  contribution:  -0.00253155
+type of attr_lst:  <class 'list'>
+For the 71-th epoch, train loss: 0.15265992283821106, test auc: 0.8622124175595096
+Organization  0  contribution:  0.00006322
+Organization  1  contribution:  -0.00053763
+Organization  2  contribution:  -0.00026492
+Organization  3  contribution:  -0.00001503
+Organization  4  contribution:  -0.00251755
+type of attr_lst:  <class 'list'>
+For the 72-th epoch, train loss: 0.1087392196059227, test auc: 0.8615389197002706
+Organization  0  contribution:  0.00003595
+Organization  1  contribution:  -0.00050036
+Organization  2  contribution:  -0.00026651
+Organization  3  contribution:  -0.00014131
+Organization  4  contribution:  -0.00236208
+type of attr_lst:  <class 'list'>
+For the 73-th epoch, train loss: 0.051840994507074356, test auc: 0.8568814503773854
+Organization  0  contribution:  0.00002567
+Organization  1  contribution:  -0.00052350
+Organization  2  contribution:  -0.00029400
+Organization  3  contribution:  -0.00013947
+Organization  4  contribution:  -0.00238506
+type of attr_lst:  <class 'list'>
+For the 74-th epoch, train loss: 0.051976148039102554, test auc: 0.8594388841418235
+Organization  0  contribution:  0.00001384
+Organization  1  contribution:  -0.00048100
+Organization  2  contribution:  -0.00027916
+Organization  3  contribution:  -0.00015917
+Organization  4  contribution:  -0.00224104
+type of attr_lst:  <class 'list'>
+For the 75-th epoch, train loss: 0.10762524604797363, test auc: 0.858637228243232
+Organization  0  contribution:  0.00000184
+Organization  1  contribution:  -0.00047876
+Organization  2  contribution:  -0.00027526
+Organization  3  contribution:  -0.00027524
+Organization  4  contribution:  -0.00238072
+type of attr_lst:  <class 'list'>
+For the 76-th epoch, train loss: 0.07699792832136154, test auc: 0.8617872179473178
+Organization  0  contribution:  0.00000303
+Organization  1  contribution:  -0.00045406
+Organization  2  contribution:  -0.00024587
+Organization  3  contribution:  -0.00044734
+Organization  4  contribution:  -0.00233998
+type of attr_lst:  <class 'list'>
+For the 77-th epoch, train loss: 0.10593459010124207, test auc: 0.8576239270423136
+Organization  0  contribution:  -0.00000282
+Organization  1  contribution:  -0.00046541
+Organization  2  contribution:  -0.00026698
+Organization  3  contribution:  -0.00037066
+Organization  4  contribution:  -0.00249066
+type of attr_lst:  <class 'list'>
+For the 78-th epoch, train loss: 0.010963031090795994, test auc: 0.8561595909938625
+Organization  0  contribution:  0.00003139
+Organization  1  contribution:  -0.00049948
+Organization  2  contribution:  -0.00023560
+Organization  3  contribution:  0.00003639
+Organization  4  contribution:  -0.00237983
+type of attr_lst:  <class 'list'>
+For the 79-th epoch, train loss: 0.018960457295179367, test auc: 0.8587959304031849
+Organization  0  contribution:  0.00002179
+Organization  1  contribution:  -0.00048811
+Organization  2  contribution:  -0.00023930
+Organization  3  contribution:  -0.00012742
+Organization  4  contribution:  -0.00259827
+type of attr_lst:  <class 'list'>
+For the 80-th epoch, train loss: 0.026353755965828896, test auc: 0.8581449588328887
+Organization  0  contribution:  0.00002902
+Organization  1  contribution:  -0.00050975
+Organization  2  contribution:  -0.00025960
+Organization  3  contribution:  -0.00012958
+Organization  4  contribution:  -0.00239430
+type of attr_lst:  <class 'list'>
+For the 81-th epoch, train loss: 0.07208312302827835, test auc: 0.860251866818471
+Organization  0  contribution:  0.00001159
+Organization  1  contribution:  -0.00050262
+Organization  2  contribution:  -0.00027362
+Organization  3  contribution:  -0.00028240
+Organization  4  contribution:  -0.00254861
+type of attr_lst:  <class 'list'>
+For the 82-th epoch, train loss: 0.09017771482467651, test auc: 0.8602982557016328
+Organization  0  contribution:  0.00000616
+Organization  1  contribution:  -0.00044417
+Organization  2  contribution:  -0.00028899
+Organization  3  contribution:  -0.00033119
+Organization  4  contribution:  -0.00269660
+type of attr_lst:  <class 'list'>
+For the 83-th epoch, train loss: 0.044310957193374634, test auc: 0.8567778549016825
+Organization  0  contribution:  0.00002414
+Organization  1  contribution:  -0.00049296
+Organization  2  contribution:  -0.00027743
+Organization  3  contribution:  -0.00014113
+Organization  4  contribution:  -0.00264408
+type of attr_lst:  <class 'list'>
+For the 84-th epoch, train loss: 0.0782671645283699, test auc: 0.859389377213017
+Organization  0  contribution:  0.00006830
+Organization  1  contribution:  -0.00041947
+Organization  2  contribution:  -0.00024923
+Organization  3  contribution:  0.00006547
+Organization  4  contribution:  -0.00244014
+type of attr_lst:  <class 'list'>
+For the 85-th epoch, train loss: 0.054364774376153946, test auc: 0.8572915688300303
+Organization  0  contribution:  0.00003673
+Organization  1  contribution:  -0.00039214
+Organization  2  contribution:  -0.00026260
+Organization  3  contribution:  -0.00005607
+Organization  4  contribution:  -0.00272335
+type of attr_lst:  <class 'list'>
+For the 86-th epoch, train loss: 0.09990566968917847, test auc: 0.8581180418266097
+Organization  0  contribution:  0.00003996
+Organization  1  contribution:  -0.00043147
+Organization  2  contribution:  -0.00026075
+Organization  3  contribution:  0.00001114
+Organization  4  contribution:  -0.00258360
+type of attr_lst:  <class 'list'>
+For the 87-th epoch, train loss: 0.046768296509981155, test auc: 0.8562508415541562
+Organization  0  contribution:  0.00005742
+Organization  1  contribution:  -0.00045805
+Organization  2  contribution:  -0.00027712
+Organization  3  contribution:  0.00000464
+Organization  4  contribution:  -0.00253383
+type of attr_lst:  <class 'list'>
+For the 88-th epoch, train loss: 0.04695196822285652, test auc: 0.8573961824430868
+Organization  0  contribution:  0.00001631
+Organization  1  contribution:  -0.00051778
+Organization  2  contribution:  -0.00030270
+Organization  3  contribution:  -0.00012185
+Organization  4  contribution:  -0.00242208
+type of attr_lst:  <class 'list'>
+For the 89-th epoch, train loss: 0.07067696750164032, test auc: 0.8580423814945392
+Organization  0  contribution:  0.00002421
+Organization  1  contribution:  -0.00042580
+Organization  2  contribution:  -0.00028847
+Organization  3  contribution:  0.00000516
+Organization  4  contribution:  -0.00243502
+type of attr_lst:  <class 'list'>
+For the 90-th epoch, train loss: 0.07306448370218277, test auc: 0.850890030220862
+Organization  0  contribution:  0.00001776
+Organization  1  contribution:  -0.00047738
+Organization  2  contribution:  -0.00026662
+Organization  3  contribution:  -0.00008237
+Organization  4  contribution:  -0.00243424
+type of attr_lst:  <class 'list'>
+For the 91-th epoch, train loss: 0.07509547472000122, test auc: 0.8553905154905781
+Organization  0  contribution:  0.00003671
+Organization  1  contribution:  -0.00054693
+Organization  2  contribution:  -0.00031430
+Organization  3  contribution:  -0.00003944
+Organization  4  contribution:  -0.00224282
+type of attr_lst:  <class 'list'>
+For the 92-th epoch, train loss: 0.0718776285648346, test auc: 0.8569254848179175
+Organization  0  contribution:  0.00002406
+Organization  1  contribution:  -0.00056613
+Organization  2  contribution:  -0.00031550
+Organization  3  contribution:  -0.00007659
+Organization  4  contribution:  -0.00227605
+type of attr_lst:  <class 'list'>
+For the 93-th epoch, train loss: 0.048109084367752075, test auc: 0.8490899633801448
+Organization  0  contribution:  0.00001647
+Organization  1  contribution:  -0.00051011
+Organization  2  contribution:  -0.00026944
+Organization  3  contribution:  -0.00012854
+Organization  4  contribution:  -0.00242338
+type of attr_lst:  <class 'list'>
+For the 94-th epoch, train loss: 0.09593045711517334, test auc: 0.8458500594210412
+Organization  0  contribution:  0.00002172
+Organization  1  contribution:  -0.00051530
+Organization  2  contribution:  -0.00027207
+Organization  3  contribution:  -0.00009303
+Organization  4  contribution:  -0.00241366
+type of attr_lst:  <class 'list'>
+For the 95-th epoch, train loss: 0.05803847685456276, test auc: 0.8499738338700189
+Organization  0  contribution:  -0.00000691
+Organization  1  contribution:  -0.00057703
+Organization  2  contribution:  -0.00029062
+Organization  3  contribution:  -0.00032262
+Organization  4  contribution:  -0.00237421
+type of attr_lst:  <class 'list'>
+For the 96-th epoch, train loss: 0.039689768105745316, test auc: 0.8527951561097277
+Organization  0  contribution:  0.00001708
+Organization  1  contribution:  -0.00054392
+Organization  2  contribution:  -0.00030585
+Organization  3  contribution:  -0.00013103
+Organization  4  contribution:  -0.00229037
+type of attr_lst:  <class 'list'>
+For the 97-th epoch, train loss: 0.03880314528942108, test auc: 0.8536827809810924
+Organization  0  contribution:  0.00003955
+Organization  1  contribution:  -0.00055576
+Organization  2  contribution:  -0.00030021
+Organization  3  contribution:  -0.00001278
+Organization  4  contribution:  -0.00232917
+type of attr_lst:  <class 'list'>
+For the 98-th epoch, train loss: 0.12522602081298828, test auc: 0.8477949563002722
+Organization  0  contribution:  0.00001184
+Organization  1  contribution:  -0.00057827
+Organization  2  contribution:  -0.00028813
+Organization  3  contribution:  -0.00013848
+Organization  4  contribution:  -0.00251703
+type of attr_lst:  <class 'list'>
+For the 99-th epoch, train loss: 0.04730044677853584, test auc: 0.8573592113304433
+Organization  0  contribution:  0.00005470
+Organization  1  contribution:  -0.00056638
+Organization  2  contribution:  -0.00031951
+Organization  3  contribution:  0.00004686
+Organization  4  contribution:  -0.00241962
+type of attr_lst:  <class 'list'>
+For the 100-th epoch, train loss: 0.11428377032279968, test auc: 0.8495087360002932
+Organization  0  contribution:  0.00004963
+Organization  1  contribution:  -0.00056349
+Organization  2  contribution:  -0.00029329
+Organization  3  contribution:  -0.00001307
+Organization  4  contribution:  -0.00263472
+type of attr_lst:  <class 'list'>
+attributions across epochs:  [[tensor(9.8462e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-3.8204e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0030, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0016, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(9.6664e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0018, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0017, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(9.0076e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0019, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0018, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0015, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0017, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(6.9874e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0010, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0019, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(7.4686e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0010, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0022, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(9.5325e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-4.1049e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0008, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-6.6903e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0022, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(8.7566e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(8.8531e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0007, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0030, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.4533e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(8.7681e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(1.4462e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(7.6247e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.1380e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(-3.0346e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.2784e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.0555e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.0909e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.7879e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.7962e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(9.3397e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(5.8604e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(7.2359e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.9049e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-8.7012e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.0119e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.9377e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.5159e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.7816e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.1712e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-1.8593e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0028, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.4923e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0030, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(3.5661e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0028, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.0614e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0029, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.6068e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0028, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.6545e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.3020e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.2365e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.8730e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-1.9067e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(7.4955e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.5541e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-5.9281e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.3356e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(1.0598e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(7.4464e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(5.7732e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(3.7488e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(5.9742e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-3.2024e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.8745e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(8.0748e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.2825e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(6.1731e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.7190e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.1926e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.4812e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-9.6807e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.8581e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.9057e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-8.4444e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.4380e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.0123e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-2.1734e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.0245e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.8937e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(2.3217e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.8995e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.2259e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.4097e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-7.9758e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(-1.9931e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(-1.3803e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(-3.2593e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0007, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.9735e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.0857e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(5.2152e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(8.2267e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0028, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.7977e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-7.3175e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.8898e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.4995e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0028, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.9759e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.3364e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.5035e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.3219e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-1.5033e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.5951e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.5671e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.3842e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0022, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.8412e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.0252e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(-2.8196e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.1392e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(3.6387e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.1789e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.9024e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.1588e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.1631e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.4139e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(6.8299e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0002, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(6.5469e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.6732e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-5.6068e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0027, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.9956e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(1.1141e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(5.7418e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(4.6449e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.6305e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.4211e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0004, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(5.1593e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.7759e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-8.2369e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.6710e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-3.9435e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0022, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.4063e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-7.6591e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.6473e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(2.1720e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-9.3032e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(-6.9078e-06, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.7083e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0005, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(3.9553e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-1.2780e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0023, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(1.1840e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0001, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0025, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(5.4701e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(4.6864e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0024, dtype=torch.float64, grad_fn=<MeanBackward0>)], [tensor(4.9628e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0006, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0003, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-1.3066e-05, dtype=torch.float64, grad_fn=<MeanBackward0>), tensor(-0.0026, dtype=torch.float64, grad_fn=<MeanBackward0>)]]
+Elapsed time: 0:31:37
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+[array(0.35061252, dtype=float32), array(0.23114394, dtype=float32), array(0.16197778, dtype=float32), array(0.19210614, dtype=float32), array(0.16935958, dtype=float32), array(0.02761099, dtype=float32), array(0.11679734, dtype=float32), array(0.08439521, dtype=float32), array(0.06162639, dtype=float32), array(0.12493632, dtype=float32), array(0.06020945, dtype=float32), array(0.113745, dtype=float32), array(0.11278189, dtype=float32), array(0.06919303, dtype=float32), array(0.06163303, dtype=float32), array(0.12933286, dtype=float32), array(0.03325842, dtype=float32), array(0.10555339, dtype=float32), array(0.11432771, dtype=float32), array(0.10517514, dtype=float32), array(0.12025259, dtype=float32), array(0.10854334, dtype=float32), array(0.10462875, dtype=float32), array(0.03944309, dtype=float32), array(0.0841815, dtype=float32), array(0.04651049, dtype=float32), array(0.04225393, dtype=float32), array(0.07101534, dtype=float32), array(0.03806523, dtype=float32), array(0.02201574, dtype=float32), array(0.14160758, dtype=float32), array(0.053579, dtype=float32), array(0.03221093, dtype=float32), array(0.07889012, dtype=float32), array(0.08768228, dtype=float32), array(0.06211116, dtype=float32), array(0.09744828, dtype=float32), array(0.05550621, dtype=float32), array(0.07251544, dtype=float32), array(0.06562682, dtype=float32), array(0.02413332, dtype=float32), array(0.07399635, dtype=float32), array(0.07652172, dtype=float32), array(0.02787242, dtype=float32), array(0.16693412, dtype=float32), array(0.02168535, dtype=float32), array(0.07574565, dtype=float32), array(0.03862174, dtype=float32), array(0.07569697, dtype=float32), array(0.02486195, dtype=float32), array(0.05685695, dtype=float32), array(0.08372534, dtype=float32), array(0.02761857, dtype=float32), array(0.06054694, dtype=float32), array(0.0361578, dtype=float32), array(0.14493747, dtype=float32), array(0.07539437, dtype=float32), array(0.03293676, dtype=float32), array(0.11044026, dtype=float32), array(0.04922309, dtype=float32), array(0.06926128, dtype=float32), array(0.23274009, dtype=float32), array(0.15642534, dtype=float32), array(0.07112449, dtype=float32), array(0.07353607, dtype=float32), array(0.0516427, dtype=float32), array(0.04533717, dtype=float32), array(0.04635324, dtype=float32), array(0.01395137, dtype=float32), array(0.0405685, dtype=float32), array(0.15265992, dtype=float32), array(0.10873922, dtype=float32), array(0.05184099, dtype=float32), array(0.05197615, dtype=float32), array(0.10762525, dtype=float32), array(0.07699793, dtype=float32), array(0.10593459, dtype=float32), array(0.01096303, dtype=float32), array(0.01896046, dtype=float32), array(0.02635376, dtype=float32), array(0.07208312, dtype=float32), array(0.09017771, dtype=float32), array(0.04431096, dtype=float32), array(0.07826716, dtype=float32), array(0.05436477, dtype=float32), array(0.09990567, dtype=float32), array(0.0467683, dtype=float32), array(0.04695197, dtype=float32), array(0.07067697, dtype=float32), array(0.07306448, dtype=float32), array(0.07509547, dtype=float32), array(0.07187763, dtype=float32), array(0.04810908, dtype=float32), array(0.09593046, dtype=float32), array(0.05803848, dtype=float32), array(0.03968977, dtype=float32), array(0.03880315, dtype=float32), array(0.12522602, dtype=float32), array(0.04730045, dtype=float32), array(0.11428377, dtype=float32)]
+[0.9140499900349808, 0.8861031378229627, 0.8800482749826087, 0.8824421068010811, 0.8770291159284279, 0.8767884537115307, 0.8757083372467988, 0.8703100457321845, 0.8787929116259323, 0.8742968170735526, 0.8765061114967306, 0.869494008643477, 0.8693531238872076, 0.8754005415981652, 0.8766405692609569, 0.8720091897077513, 0.8754851742656622, 0.8695996403938868, 0.8720054989598454, 0.8708457768807987, 0.8714214062869471, 0.8733587307696126, 0.8673825190398049, 0.8679213682340637, 0.8729013325636213, 0.8758790025206535, 0.8701634339533026, 0.8666691229230316, 0.8701178723067404, 0.8727372215489789, 0.8673008135171988, 0.8666837586474859, 0.8640862993583445, 0.8668726867601165, 0.8716555142446325, 0.8721188940075745, 0.8740730813901545, 0.8622162992081691, 0.8644295389135914, 0.8653246089143526, 0.865495783256884, 0.8687102337821537, 0.8678819154116215, 0.8696548743453059, 0.8648407391371744, 0.8647386708675014, 0.8675906008613951, 0.8635091427461659, 0.8662042159540595, 0.8670505426290293, 0.8631927565636134, 0.8610378688552547, 0.8673274759891396, 0.866112774493012, 0.865620823250592, 0.8614913217790017, 0.8658182782635566, 0.8584409186347898, 0.8646887185036027, 0.8575441941608295, 0.8622775783501235, 0.8635096518148426, 0.8624066272596604, 0.8573250400955217, 0.8636768808751298, 0.8616557509615672, 0.8602812019009642, 0.8642002034747501, 0.8602352584528946, 0.862143311486651, 0.8622124175595096, 0.8615389197002706, 0.8568814503773854, 0.8594388841418235, 0.858637228243232, 0.8617872179473178, 0.8576239270423136, 0.8561595909938625, 0.8587959304031849, 0.8581449588328887, 0.860251866818471, 0.8602982557016328, 0.8567778549016825, 0.859389377213017, 0.8572915688300303, 0.8581180418266097, 0.8562508415541562, 0.8573961824430868, 0.8580423814945392, 0.850890030220862, 0.8553905154905781, 0.8569254848179175, 0.8490899633801448, 0.8458500594210412, 0.8499738338700189, 0.8527951561097277, 0.8536827809810924, 0.8477949563002722, 0.8573592113304433, 0.8495087360002932]

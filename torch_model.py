@@ -40,7 +40,22 @@ class torch_top_model(nn.Module):
         x = self.input_layer(x)
         x = self.hidden_layers(x)
         x = self.output_layer(x)
+        # temp_tensor = torch.zeros(len(x), 2)
+        # x = torch.sigmoid(x).squeeze()
+        # for i in range(len(x)):
+        #     if x[i] > 0.5:
+        #         temp_tensor[i][1] = 1
+        #     else:
+        #         temp_tensor[i][0] = 1
+        # x = torch.reshape(x, (len(x), 1))
+        # x = self.softmax(x)
+
+        # return temp_tensor
+        # return x
         x = torch.sigmoid(x).squeeze()
+        zeros_tensor = torch.zeros_like(x)
+        x = torch.cat((zeros_tensor.view(-1,1), x.view(-1,1)), dim=1)
+        # x = torch.reshape(x, (len(x), 1))
         # x = self.softmax(x)
 
         return x

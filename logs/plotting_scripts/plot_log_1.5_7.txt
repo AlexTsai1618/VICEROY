@@ -1,0 +1,600 @@
+epoch: 1, train loss: 0.33383965492248535, test auc: 0.9179688007080127
+Organization  0  contribution:  -0.00034750
+Organization  1  contribution:  0.00064202
+Organization  2  contribution:  -0.00241954
+Organization  3  contribution:  -0.00008333
+Organization  4  contribution:  -0.00021148
+epoch: 2, train loss: 0.0802980586886406, test auc: 0.8804827650981496
+Organization  0  contribution:  -0.00044624
+Organization  1  contribution:  0.00015470
+Organization  2  contribution:  -0.00230343
+Organization  3  contribution:  -0.00026702
+Organization  4  contribution:  -0.00021286
+epoch: 3, train loss: 0.15853174030780792, test auc: 0.8872521058262147
+Organization  0  contribution:  -0.00091083
+Organization  1  contribution:  0.00010435
+Organization  2  contribution:  -0.00177406
+Organization  3  contribution:  -0.00034533
+Organization  4  contribution:  -0.00014030
+epoch: 4, train loss: 0.17925924062728882, test auc: 0.8723197852341067
+Organization  0  contribution:  -0.00101941
+Organization  1  contribution:  -0.00011983
+Organization  2  contribution:  -0.00128050
+Organization  3  contribution:  -0.00024279
+Organization  4  contribution:  -0.00011946
+epoch: 5, train loss: 0.07824643701314926, test auc: 0.8789866122574065
+Organization  0  contribution:  -0.00103144
+Organization  1  contribution:  -0.00009562
+Organization  2  contribution:  -0.00126261
+Organization  3  contribution:  -0.00024696
+Organization  4  contribution:  -0.00009301
+epoch: 6, train loss: 0.13935674726963043, test auc: 0.8848244209407437
+Organization  0  contribution:  -0.00101070
+Organization  1  contribution:  -0.00009054
+Organization  2  contribution:  -0.00171574
+Organization  3  contribution:  -0.00030332
+Organization  4  contribution:  -0.00013101
+epoch: 7, train loss: 0.08488795906305313, test auc: 0.8718462877312158
+Organization  0  contribution:  -0.00118929
+Organization  1  contribution:  -0.00016705
+Organization  2  contribution:  -0.00172304
+Organization  3  contribution:  -0.00021548
+Organization  4  contribution:  -0.00010805
+epoch: 8, train loss: 0.14970627427101135, test auc: 0.8817553731562487
+Organization  0  contribution:  -0.00137358
+Organization  1  contribution:  -0.00022971
+Organization  2  contribution:  -0.00070533
+Organization  3  contribution:  -0.00007230
+Organization  4  contribution:  -0.00006726
+epoch: 9, train loss: 0.06016823649406433, test auc: 0.8746980904579402
+Organization  0  contribution:  -0.00131704
+Organization  1  contribution:  -0.00036148
+Organization  2  contribution:  -0.00080362
+Organization  3  contribution:  -0.00010014
+Organization  4  contribution:  -0.00003391
+epoch: 10, train loss: 0.06801744550466537, test auc: 0.8730889243709756
+Organization  0  contribution:  -0.00147778
+Organization  1  contribution:  -0.00029989
+Organization  2  contribution:  -0.00138755
+Organization  3  contribution:  -0.00024862
+Organization  4  contribution:  -0.00010794
+epoch: 11, train loss: 0.08223705738782883, test auc: 0.8777177585807979
+Organization  0  contribution:  -0.00138723
+Organization  1  contribution:  -0.00038349
+Organization  2  contribution:  -0.00118677
+Organization  3  contribution:  -0.00019998
+Organization  4  contribution:  -0.00009645
+epoch: 12, train loss: 0.04359593614935875, test auc: 0.8781446762997733
+Organization  0  contribution:  -0.00148703
+Organization  1  contribution:  -0.00044813
+Organization  2  contribution:  -0.00036790
+Organization  3  contribution:  -0.00001402
+Organization  4  contribution:  -0.00005147
+epoch: 13, train loss: 0.08255892246961594, test auc: 0.8827913279132791
+Organization  0  contribution:  -0.00137887
+Organization  1  contribution:  -0.00046299
+Organization  2  contribution:  -0.00033639
+Organization  3  contribution:  -0.00010605
+Organization  4  contribution:  -0.00004529
+epoch: 14, train loss: 0.05142104625701904, test auc: 0.871176289719129
+Organization  0  contribution:  -0.00138393
+Organization  1  contribution:  -0.00054176
+Organization  2  contribution:  -0.00065364
+Organization  3  contribution:  -0.00024414
+Organization  4  contribution:  -0.00006368
+epoch: 15, train loss: 0.14783677458763123, test auc: 0.8705738705738705
+Organization  0  contribution:  -0.00150785
+Organization  1  contribution:  -0.00064418
+Organization  2  contribution:  -0.00068227
+Organization  3  contribution:  -0.00030829
+Organization  4  contribution:  -0.00007230
+epoch: 16, train loss: 0.1376606673002243, test auc: 0.8713926439067152
+Organization  0  contribution:  -0.00146541
+Organization  1  contribution:  -0.00070389
+Organization  2  contribution:  -0.00012006
+Organization  3  contribution:  -0.00025457
+Organization  4  contribution:  -0.00004029
+epoch: 17, train loss: 0.08709735423326492, test auc: 0.8679057780058406
+Organization  0  contribution:  -0.00157562
+Organization  1  contribution:  -0.00069809
+Organization  2  contribution:  -0.00040400
+Organization  3  contribution:  -0.00038108
+Organization  4  contribution:  -0.00004057
+epoch: 18, train loss: 0.08645961433649063, test auc: 0.8707221368259517
+Organization  0  contribution:  -0.00179361
+Organization  1  contribution:  -0.00071224
+Organization  2  contribution:  -0.00028213
+Organization  3  contribution:  -0.00043033
+Organization  4  contribution:  -0.00004386
+epoch: 19, train loss: 0.0581834577023983, test auc: 0.8786268279701676
+Organization  0  contribution:  -0.00197361
+Organization  1  contribution:  -0.00073316
+Organization  2  contribution:  -0.00023167
+Organization  3  contribution:  -0.00029623
+Organization  4  contribution:  -0.00003230
+epoch: 20, train loss: 0.12022173404693604, test auc: 0.8809888429963477
+Organization  0  contribution:  -0.00177936
+Organization  1  contribution:  -0.00084996
+Organization  2  contribution:  0.00010442
+Organization  3  contribution:  -0.00020350
+Organization  4  contribution:  -0.00001512
+epoch: 21, train loss: 0.06219881400465965, test auc: 0.8708632761165594
+Organization  0  contribution:  -0.00172458
+Organization  1  contribution:  -0.00092374
+Organization  2  contribution:  0.00007404
+Organization  3  contribution:  -0.00021133
+Organization  4  contribution:  -0.00001934
+epoch: 22, train loss: 0.011631041765213013, test auc: 0.8774541882734503
+Organization  0  contribution:  -0.00181729
+Organization  1  contribution:  -0.00076661
+Organization  2  contribution:  -0.00042416
+Organization  3  contribution:  -0.00035883
+Organization  4  contribution:  -0.00006624
+epoch: 23, train loss: 0.04274995997548103, test auc: 0.8752104680810121
+Organization  0  contribution:  -0.00192131
+Organization  1  contribution:  -0.00077083
+Organization  2  contribution:  0.00012625
+Organization  3  contribution:  -0.00025712
+Organization  4  contribution:  -0.00002961
+epoch: 24, train loss: 0.04836001619696617, test auc: 0.870639031364485
+Organization  0  contribution:  -0.00191692
+Organization  1  contribution:  -0.00083869
+Organization  2  contribution:  0.00013343
+Organization  3  contribution:  -0.00022491
+Organization  4  contribution:  -0.00003402
+epoch: 25, train loss: 0.11602339148521423, test auc: 0.8771794820888004
+Organization  0  contribution:  -0.00154626
+Organization  1  contribution:  -0.00089204
+Organization  2  contribution:  0.00059032
+Organization  3  contribution:  -0.00020088
+Organization  4  contribution:  -0.00000428
+epoch: 26, train loss: 0.03650018945336342, test auc: 0.8760366229096685
+Organization  0  contribution:  -0.00145641
+Organization  1  contribution:  -0.00087949
+Organization  2  contribution:  -0.00044474
+Organization  3  contribution:  -0.00036890
+Organization  4  contribution:  -0.00002043
+epoch: 27, train loss: 0.05025133863091469, test auc: 0.8697565608134714
+Organization  0  contribution:  -0.00149613
+Organization  1  contribution:  -0.00090519
+Organization  2  contribution:  -0.00007759
+Organization  3  contribution:  -0.00034926
+Organization  4  contribution:  -0.00000787
+epoch: 28, train loss: 0.08140767365694046, test auc: 0.8702489574909837
+Organization  0  contribution:  -0.00160418
+Organization  1  contribution:  -0.00089513
+Organization  2  contribution:  -0.00015952
+Organization  3  contribution:  -0.00038484
+Organization  4  contribution:  -0.00002266
+epoch: 29, train loss: 0.03901439532637596, test auc: 0.8666125526663363
+Organization  0  contribution:  -0.00159691
+Organization  1  contribution:  -0.00087010
+Organization  2  contribution:  -0.00039777
+Organization  3  contribution:  -0.00038749
+Organization  4  contribution:  -0.00003554
+epoch: 30, train loss: 0.050180673599243164, test auc: 0.8680061918023143
+Organization  0  contribution:  -0.00163744
+Organization  1  contribution:  -0.00092364
+Organization  2  contribution:  0.00017299
+Organization  3  contribution:  -0.00034351
+Organization  4  contribution:  -0.00002075
+epoch: 31, train loss: 0.18568478524684906, test auc: 0.8705012010202754
+Organization  0  contribution:  -0.00168363
+Organization  1  contribution:  -0.00081922
+Organization  2  contribution:  -0.00033320
+Organization  3  contribution:  -0.00035082
+Organization  4  contribution:  -0.00002793
+epoch: 32, train loss: 0.04334372282028198, test auc: 0.8695215619856019
+Organization  0  contribution:  -0.00173377
+Organization  1  contribution:  -0.00093823
+Organization  2  contribution:  0.00012327
+Organization  3  contribution:  -0.00028784
+Organization  4  contribution:  -0.00002632
+epoch: 33, train loss: 0.08731899410486221, test auc: 0.8698185399248564
+Organization  0  contribution:  -0.00185154
+Organization  1  contribution:  -0.00083924
+Organization  2  contribution:  -0.00024199
+Organization  3  contribution:  -0.00035594
+Organization  4  contribution:  -0.00004443
+epoch: 34, train loss: 0.05906553938984871, test auc: 0.8655779978481666
+Organization  0  contribution:  -0.00170913
+Organization  1  contribution:  -0.00092967
+Organization  2  contribution:  0.00010971
+Organization  3  contribution:  -0.00029660
+Organization  4  contribution:  -0.00003222
+epoch: 35, train loss: 0.07425618916749954, test auc: 0.8711414821483614
+Organization  0  contribution:  -0.00152961
+Organization  1  contribution:  -0.00107999
+Organization  2  contribution:  0.00022948
+Organization  3  contribution:  -0.00029965
+Organization  4  contribution:  -0.00002230
+epoch: 36, train loss: 0.10110422968864441, test auc: 0.8730675434865554
+Organization  0  contribution:  -0.00144594
+Organization  1  contribution:  -0.00103030
+Organization  2  contribution:  -0.00023456
+Organization  3  contribution:  -0.00044071
+Organization  4  contribution:  -0.00003552
+epoch: 37, train loss: 0.07804689556360245, test auc: 0.8715314923882777
+Organization  0  contribution:  -0.00143763
+Organization  1  contribution:  -0.00115689
+Organization  2  contribution:  -0.00002868
+Organization  3  contribution:  -0.00042460
+Organization  4  contribution:  -0.00003366
+epoch: 38, train loss: 0.05975718796253204, test auc: 0.8684392183454098
+Organization  0  contribution:  -0.00156452
+Organization  1  contribution:  -0.00107784
+Organization  2  contribution:  -0.00012574
+Organization  3  contribution:  -0.00036251
+Organization  4  contribution:  -0.00002148
+epoch: 39, train loss: 0.06981754302978516, test auc: 0.8764282876227842
+Organization  0  contribution:  -0.00160021
+Organization  1  contribution:  -0.00098778
+Organization  2  contribution:  -0.00041175
+Organization  3  contribution:  -0.00037247
+Organization  4  contribution:  -0.00002381
+epoch: 40, train loss: 0.010968585498631, test auc: 0.8606238051203655
+Organization  0  contribution:  -0.00165211
+Organization  1  contribution:  -0.00113794
+Organization  2  contribution:  0.00050199
+Organization  3  contribution:  -0.00025524
+Organization  4  contribution:  0.00000637
+epoch: 41, train loss: 0.10988796502351761, test auc: 0.8724716149669246
+Organization  0  contribution:  -0.00175276
+Organization  1  contribution:  -0.00103689
+Organization  2  contribution:  0.00019274
+Organization  3  contribution:  -0.00025443
+Organization  4  contribution:  -0.00001830
+epoch: 42, train loss: 0.06626354902982712, test auc: 0.8674928596754737
+Organization  0  contribution:  -0.00157734
+Organization  1  contribution:  -0.00116122
+Organization  2  contribution:  0.00046370
+Organization  3  contribution:  -0.00021509
+Organization  4  contribution:  -0.00000032
+epoch: 43, train loss: 0.10104739665985107, test auc: 0.8660418866797853
+Organization  0  contribution:  -0.00172376
+Organization  1  contribution:  -0.00102780
+Organization  2  contribution:  0.00025401
+Organization  3  contribution:  -0.00026502
+Organization  4  contribution:  -0.00001294
+epoch: 44, train loss: 0.12093249708414078, test auc: 0.8714615590788198
+Organization  0  contribution:  -0.00175406
+Organization  1  contribution:  -0.00098649
+Organization  2  contribution:  -0.00014393
+Organization  3  contribution:  -0.00041419
+Organization  4  contribution:  -0.00003856
+epoch: 45, train loss: 0.13573713600635529, test auc: 0.870957453821744
+Organization  0  contribution:  -0.00182796
+Organization  1  contribution:  -0.00099336
+Organization  2  contribution:  0.00030862
+Organization  3  contribution:  -0.00027016
+Organization  4  contribution:  -0.00000237
+epoch: 46, train loss: 0.03655027225613594, test auc: 0.8684136376444068
+Organization  0  contribution:  -0.00186858
+Organization  1  contribution:  -0.00085285
+Organization  2  contribution:  0.00002306
+Organization  3  contribution:  -0.00036073
+Organization  4  contribution:  -0.00001212
+epoch: 47, train loss: 0.05306132510304451, test auc: 0.8704571029461586
+Organization  0  contribution:  -0.00196870
+Organization  1  contribution:  -0.00084993
+Organization  2  contribution:  0.00021027
+Organization  3  contribution:  -0.00030189
+Organization  4  contribution:  0.00000128
+epoch: 48, train loss: 0.1353885978460312, test auc: 0.8649767877410153
+Organization  0  contribution:  -0.00190371
+Organization  1  contribution:  -0.00091730
+Organization  2  contribution:  0.00010733
+Organization  3  contribution:  -0.00040414
+Organization  4  contribution:  -0.00002256
+epoch: 49, train loss: 0.04620477184653282, test auc: 0.8640469738030715
+Organization  0  contribution:  -0.00193418
+Organization  1  contribution:  -0.00096514
+Organization  2  contribution:  0.00036788
+Organization  3  contribution:  -0.00031783
+Organization  4  contribution:  -0.00001018
+epoch: 50, train loss: 0.06144385412335396, test auc: 0.8690107752021448
+Organization  0  contribution:  -0.00182815
+Organization  1  contribution:  -0.00096540
+Organization  2  contribution:  0.00045382
+Organization  3  contribution:  -0.00029546
+Organization  4  contribution:  -0.00001944
+epoch: 51, train loss: 0.1484784632921219, test auc: 0.8635603677817562
+Organization  0  contribution:  -0.00194033
+Organization  1  contribution:  -0.00092312
+Organization  2  contribution:  0.00029026
+Organization  3  contribution:  -0.00033865
+Organization  4  contribution:  0.00000576
+epoch: 52, train loss: 0.09651082009077072, test auc: 0.8688583091334812
+Organization  0  contribution:  -0.00184398
+Organization  1  contribution:  -0.00092518
+Organization  2  contribution:  0.00021949
+Organization  3  contribution:  -0.00035840
+Organization  4  contribution:  -0.00000319
+epoch: 53, train loss: 0.030643118545413017, test auc: 0.8629814294292093
+Organization  0  contribution:  -0.00167871
+Organization  1  contribution:  -0.00106445
+Organization  2  contribution:  0.00075334
+Organization  3  contribution:  -0.00029922
+Organization  4  contribution:  0.00002239
+epoch: 54, train loss: 0.10796328634023666, test auc: 0.8724710422646633
+Organization  0  contribution:  -0.00175486
+Organization  1  contribution:  -0.00095848
+Organization  2  contribution:  -0.00001093
+Organization  3  contribution:  -0.00040986
+Organization  4  contribution:  -0.00000360
+epoch: 55, train loss: 0.32112815976142883, test auc: 0.8674403619681917
+Organization  0  contribution:  -0.00179508
+Organization  1  contribution:  -0.00097920
+Organization  2  contribution:  0.00029974
+Organization  3  contribution:  -0.00031373
+Organization  4  contribution:  0.00000877
+epoch: 56, train loss: 0.055593300610780716, test auc: 0.8695096625052847
+Organization  0  contribution:  -0.00180533
+Organization  1  contribution:  -0.00077433
+Organization  2  contribution:  -0.00022243
+Organization  3  contribution:  -0.00056645
+Organization  4  contribution:  -0.00003029
+epoch: 57, train loss: 0.02968902885913849, test auc: 0.8661354916827088
+Organization  0  contribution:  -0.00160314
+Organization  1  contribution:  -0.00088104
+Organization  2  contribution:  -0.00025565
+Organization  3  contribution:  -0.00053059
+Organization  4  contribution:  -0.00002201
+epoch: 58, train loss: 0.06944704800844193, test auc: 0.8724342620527736
+Organization  0  contribution:  -0.00163314
+Organization  1  contribution:  -0.00088708
+Organization  2  contribution:  0.00010247
+Organization  3  contribution:  -0.00044521
+Organization  4  contribution:  -0.00000670
+epoch: 59, train loss: 0.05441923812031746, test auc: 0.862924222836668
+Organization  0  contribution:  -0.00157483
+Organization  1  contribution:  -0.00096364
+Organization  2  contribution:  -0.00007301
+Organization  3  contribution:  -0.00043414
+Organization  4  contribution:  -0.00001220
+epoch: 60, train loss: 0.038518331944942474, test auc: 0.867818027292699
+Organization  0  contribution:  -0.00140565
+Organization  1  contribution:  -0.00107409
+Organization  2  contribution:  -0.00001555
+Organization  3  contribution:  -0.00034642
+Organization  4  contribution:  -0.00001741
+epoch: 61, train loss: 0.026327921077609062, test auc: 0.8635499318738842
+Organization  0  contribution:  -0.00150667
+Organization  1  contribution:  -0.00104712
+Organization  2  contribution:  -0.00005742
+Organization  3  contribution:  -0.00034383
+Organization  4  contribution:  -0.00001352
+epoch: 62, train loss: 0.062581866979599, test auc: 0.8570733692684912
+Organization  0  contribution:  -0.00153990
+Organization  1  contribution:  -0.00101256
+Organization  2  contribution:  -0.00010519
+Organization  3  contribution:  -0.00043026
+Organization  4  contribution:  -0.00003241
+epoch: 63, train loss: 0.038577962666749954, test auc: 0.8636627542193521
+Organization  0  contribution:  -0.00154073
+Organization  1  contribution:  -0.00107516
+Organization  2  contribution:  0.00011314
+Organization  3  contribution:  -0.00027126
+Organization  4  contribution:  -0.00002169
+epoch: 64, train loss: 0.05025976896286011, test auc: 0.8653769793544652
+Organization  0  contribution:  -0.00147052
+Organization  1  contribution:  -0.00108258
+Organization  2  contribution:  -0.00005058
+Organization  3  contribution:  -0.00035345
+Organization  4  contribution:  -0.00002922
+epoch: 65, train loss: 0.0766700953245163, test auc: 0.8628329086427899
+Organization  0  contribution:  -0.00150965
+Organization  1  contribution:  -0.00108425
+Organization  2  contribution:  0.00019684
+Organization  3  contribution:  -0.00028829
+Organization  4  contribution:  -0.00001638
+epoch: 66, train loss: 0.08893436938524246, test auc: 0.8636210105878648
+Organization  0  contribution:  -0.00138285
+Organization  1  contribution:  -0.00105722
+Organization  2  contribution:  -0.00015747
+Organization  3  contribution:  -0.00033962
+Organization  4  contribution:  -0.00002636
+epoch: 67, train loss: 0.08262575417757034, test auc: 0.8661401369343833
+Organization  0  contribution:  -0.00146491
+Organization  1  contribution:  -0.00109673
+Organization  2  contribution:  0.00001027
+Organization  3  contribution:  -0.00028818
+Organization  4  contribution:  -0.00002869
+epoch: 68, train loss: 0.059378232806921005, test auc: 0.86472435331097
+Organization  0  contribution:  -0.00140853
+Organization  1  contribution:  -0.00105930
+Organization  2  contribution:  -0.00026554
+Organization  3  contribution:  -0.00037792
+Organization  4  contribution:  -0.00004112
+epoch: 69, train loss: 0.04245600476861, test auc: 0.8541349612331476
+Organization  0  contribution:  -0.00153767
+Organization  1  contribution:  -0.00104677
+Organization  2  contribution:  -0.00014646
+Organization  3  contribution:  -0.00036524
+Organization  4  contribution:  -0.00003638
+epoch: 70, train loss: 0.015751058235764503, test auc: 0.8694855453767273
+Organization  0  contribution:  -0.00143095
+Organization  1  contribution:  -0.00106240
+Organization  2  contribution:  -0.00009616
+Organization  3  contribution:  -0.00031111
+Organization  4  contribution:  -0.00003740
+epoch: 71, train loss: 0.10310778766870499, test auc: 0.8652406125827014
+Organization  0  contribution:  -0.00146173
+Organization  1  contribution:  -0.00109267
+Organization  2  contribution:  -0.00001097
+Organization  3  contribution:  -0.00036515
+Organization  4  contribution:  -0.00003631
+epoch: 72, train loss: 0.02114100195467472, test auc: 0.8626724247424684
+Organization  0  contribution:  -0.00145699
+Organization  1  contribution:  -0.00109605
+Organization  2  contribution:  -0.00017043
+Organization  3  contribution:  -0.00045057
+Organization  4  contribution:  -0.00005298
+epoch: 73, train loss: 0.10299781709909439, test auc: 0.8534904166548944
+Organization  0  contribution:  -0.00156770
+Organization  1  contribution:  -0.00107195
+Organization  2  contribution:  0.00001975
+Organization  3  contribution:  -0.00048097
+Organization  4  contribution:  -0.00004379
+epoch: 74, train loss: 0.0025752864312380552, test auc: 0.8661961981224021
+Organization  0  contribution:  -0.00141827
+Organization  1  contribution:  -0.00106898
+Organization  2  contribution:  -0.00000577
+Organization  3  contribution:  -0.00049028
+Organization  4  contribution:  -0.00003768
+epoch: 75, train loss: 0.04150516167283058, test auc: 0.870519782026974
+Organization  0  contribution:  -0.00139055
+Organization  1  contribution:  -0.00109472
+Organization  2  contribution:  0.00010439
+Organization  3  contribution:  -0.00038756
+Organization  4  contribution:  -0.00003184
+epoch: 76, train loss: 0.025122055783867836, test auc: 0.8635431867139183
+Organization  0  contribution:  -0.00135621
+Organization  1  contribution:  -0.00112244
+Organization  2  contribution:  0.00016369
+Organization  3  contribution:  -0.00041068
+Organization  4  contribution:  -0.00003696
+epoch: 77, train loss: 0.016665907576680183, test auc: 0.8567875908401237
+Organization  0  contribution:  -0.00141909
+Organization  1  contribution:  -0.00113193
+Organization  2  contribution:  0.00021343
+Organization  3  contribution:  -0.00042447
+Organization  4  contribution:  -0.00002979
+epoch: 78, train loss: 0.0324985533952713, test auc: 0.8638265470660718
+Organization  0  contribution:  -0.00138021
+Organization  1  contribution:  -0.00111021
+Organization  2  contribution:  0.00006714
+Organization  3  contribution:  -0.00043954
+Organization  4  contribution:  -0.00002571
+epoch: 79, train loss: 0.13134050369262695, test auc: 0.8589246611447986
+Organization  0  contribution:  -0.00137807
+Organization  1  contribution:  -0.00114127
+Organization  2  contribution:  0.00014545
+Organization  3  contribution:  -0.00044294
+Organization  4  contribution:  -0.00002570
+epoch: 80, train loss: 0.13427458703517914, test auc: 0.864433738730174
+Organization  0  contribution:  -0.00138672
+Organization  1  contribution:  -0.00109428
+Organization  2  contribution:  -0.00018048
+Organization  3  contribution:  -0.00053134
+Organization  4  contribution:  -0.00003962
+epoch: 81, train loss: 0.06702571362257004, test auc: 0.8605934519005188
+Organization  0  contribution:  -0.00169514
+Organization  1  contribution:  -0.00107163
+Organization  2  contribution:  0.00028186
+Organization  3  contribution:  -0.00046746
+Organization  4  contribution:  -0.00002704
+epoch: 82, train loss: 0.04544541612267494, test auc: 0.8638626909421155
+Organization  0  contribution:  -0.00152926
+Organization  1  contribution:  -0.00111536
+Organization  2  contribution:  0.00040392
+Organization  3  contribution:  -0.00052788
+Organization  4  contribution:  -0.00002018
+epoch: 83, train loss: 0.06417275220155716, test auc: 0.8603296270588329
+Organization  0  contribution:  -0.00153793
+Organization  1  contribution:  -0.00104647
+Organization  2  contribution:  0.00007700
+Organization  3  contribution:  -0.00063054
+Organization  4  contribution:  -0.00002764
+epoch: 84, train loss: 0.03638145700097084, test auc: 0.8677127773437968
+Organization  0  contribution:  -0.00160811
+Organization  1  contribution:  -0.00106363
+Organization  2  contribution:  0.00019598
+Organization  3  contribution:  -0.00048894
+Organization  4  contribution:  -0.00002392
+epoch: 85, train loss: 0.06735491007566452, test auc: 0.8607933249896977
+Organization  0  contribution:  -0.00151563
+Organization  1  contribution:  -0.00108124
+Organization  2  contribution:  0.00022179
+Organization  3  contribution:  -0.00051999
+Organization  4  contribution:  -0.00002200
+epoch: 86, train loss: 0.060761671513319016, test auc: 0.8618276252735289
+Organization  0  contribution:  -0.00170567
+Organization  1  contribution:  -0.00099672
+Organization  2  contribution:  0.00030718
+Organization  3  contribution:  -0.00053961
+Organization  4  contribution:  -0.00002585
+epoch: 87, train loss: 0.053891684859991074, test auc: 0.8563797631965236
+Organization  0  contribution:  -0.00168546
+Organization  1  contribution:  -0.00099813
+Organization  2  contribution:  0.00030732
+Organization  3  contribution:  -0.00056074
+Organization  4  contribution:  -0.00002837
+epoch: 88, train loss: 0.03954171761870384, test auc: 0.8506883117577303
+Organization  0  contribution:  -0.00157067
+Organization  1  contribution:  -0.00107816
+Organization  2  contribution:  0.00047435
+Organization  3  contribution:  -0.00039176
+Organization  4  contribution:  -0.00000762
+epoch: 89, train loss: 0.07161528617143631, test auc: 0.8629612575828961
+Organization  0  contribution:  -0.00161799
+Organization  1  contribution:  -0.00093322
+Organization  2  contribution:  -0.00012831
+Organization  3  contribution:  -0.00071460
+Organization  4  contribution:  -0.00003634
+epoch: 90, train loss: 0.09087901562452316, test auc: 0.8575133318723063
+Organization  0  contribution:  -0.00176533
+Organization  1  contribution:  -0.00097039
+Organization  2  contribution:  0.00047993
+Organization  3  contribution:  -0.00054409
+Organization  4  contribution:  -0.00001251
+epoch: 91, train loss: 0.060350123792886734, test auc: 0.8592651008223242
+Organization  0  contribution:  -0.00176225
+Organization  1  contribution:  -0.00093302
+Organization  2  contribution:  0.00035560
+Organization  3  contribution:  -0.00053048
+Organization  4  contribution:  -0.00001633
+epoch: 92, train loss: 0.055490199476480484, test auc: 0.8602514213833787
+Organization  0  contribution:  -0.00175526
+Organization  1  contribution:  -0.00096703
+Organization  2  contribution:  0.00027323
+Organization  3  contribution:  -0.00049648
+Organization  4  contribution:  -0.00002173
+epoch: 93, train loss: 0.04194093123078346, test auc: 0.861166663230453
+Organization  0  contribution:  -0.00169392
+Organization  1  contribution:  -0.00101332
+Organization  2  contribution:  0.00046805
+Organization  3  contribution:  -0.00041734
+Organization  4  contribution:  -0.00001652
+epoch: 94, train loss: 0.04573214426636696, test auc: 0.8646416932845951
+Organization  0  contribution:  -0.00172876
+Organization  1  contribution:  -0.00096021
+Organization  2  contribution:  0.00022466
+Organization  3  contribution:  -0.00043364
+Organization  4  contribution:  -0.00002495
+epoch: 95, train loss: 0.016258856281638145, test auc: 0.8555261186593268
+Organization  0  contribution:  -0.00175039
+Organization  1  contribution:  -0.00095295
+Organization  2  contribution:  0.00019424
+Organization  3  contribution:  -0.00046100
+Organization  4  contribution:  -0.00002663
+epoch: 96, train loss: 0.17241565883159637, test auc: 0.8556196600286656
+Organization  0  contribution:  -0.00176050
+Organization  1  contribution:  -0.00097384
+Organization  2  contribution:  0.00024741
+Organization  3  contribution:  -0.00043006
+Organization  4  contribution:  -0.00002176
+epoch: 97, train loss: 0.04664618894457817, test auc: 0.858755077641882
+Organization  0  contribution:  -0.00166960
+Organization  1  contribution:  -0.00092337
+Organization  2  contribution:  0.00011403
+Organization  3  contribution:  -0.00038111
+Organization  4  contribution:  -0.00000942
+epoch: 98, train loss: 0.022501036524772644, test auc: 0.8532955706188976
+Organization  0  contribution:  -0.00164524
+Organization  1  contribution:  -0.00093509
+Organization  2  contribution:  0.00008731
+Organization  3  contribution:  -0.00036836
+Organization  4  contribution:  -0.00001376
+epoch: 99, train loss: 0.011278152465820312, test auc: 0.8562420601194835
+Organization  0  contribution:  -0.00171690
+Organization  1  contribution:  -0.00090035
+Organization  2  contribution:  -0.00011064
+Organization  3  contribution:  -0.00037954
+Organization  4  contribution:  -0.00002283
+epoch: 100, train loss: 0.026597777381539345, test auc: 0.8643841681677829
+Organization  0  contribution:  -0.00160012
+Organization  1  contribution:  -0.00093852
+Organization  2  contribution:  -0.00013722
+Organization  3  contribution:  -0.00040355
+Organization  4  contribution:  -0.00002158

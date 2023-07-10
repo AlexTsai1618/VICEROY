@@ -36,8 +36,33 @@ Reference
 """
 from torch_model import MlpModel, torch_organization_model, torch_top_model
 
-def main(args):
+
+
+
+
+def token_consumption(avaialble_tokens, organization_tokens):
+    number_of_organizations = 2
+    for idx in range(number_of_organizations):
+        organization_tokens[idx] -= 1
+        avaialble_tokens += 1
+    return organization_tokens, avaialble_tokens
+        
+def token_distribution(sorted_organizations, avaialble_tokens, organization_tokens):
+    given_free_tokens = 0
+    print('sorted_organizations: ', sorted_organizations)
+    for idx in sorted_organizations:
+        number_of_organizations = 2
+        d = number_of_organizations*(number_of_organizations+1)/2
+        free_token = int((number_of_organizations - idx) * (avaialble_tokens/d) * 0.5)
+        
+        organization_tokens[idx] += free_token
+        given_free_tokens += free_token
+    avaialble_tokens -= given_free_tokens
+    return organization_tokens, avaialble_tokens
     
+def main(args):
+    avaialble_tokens = 0
+    organization_tokens = { 0: 100, 1: 100 }
     data_type = args.data_type                  # define the data options: 'original', 'encoded'
     model_type = args.model_type                # define the learning methods: 'vertical', 'centralized'
     epochs = args.epochs                        # number of training epochs
@@ -48,7 +73,7 @@ def main(args):
     
     # dataset preprocessing
     if data_type == 'original': 
-        
+        # args.dname = 'AVAZU'
         if args.dname == 'ADULT':
             
             file_path = "./datasets/{0}.csv".format(args.dname)
@@ -72,8 +97,11 @@ def main(args):
             # y = X['income'].values.astype('int')
             y = X['income'].apply(lambda x: bool(">" in x)).astype("int")
             X = X.drop(['income'], axis=1)
+            
+            #[FARAZ]
+            noisy_features_to_add = 13
             # Generate an array of random categories
-            noisy_categories = np.random.choice(['A', 'B', 'C'], size=[X.shape[0], 4])
+            noisy_categories = np.random.choice(['A', 'B', 'C', 'D', 'E'], size=[X.shape[0], noisy_features_to_add])
             
             # Convert the 2D array to a 1D array
             noisy_categories_flat = noisy_categories.flatten()
@@ -82,11 +110,16 @@ def main(args):
             noisy_categories_lst = pd.Categorical(noisy_categories_flat)
 
             # Reshape the 1D array back to a 2D array
-            noisy_categories_2d = noisy_categories_lst.codes.reshape(-1, 4)
+            noisy_categories_2d = noisy_categories_lst.codes.reshape(-1, noisy_features_to_add)
 
             # print('noisy_categories_lst: ', noisy_categories_2d)
             # Add the categories to the DataFrame
-            X = pd.concat([X.reset_index(drop=True), pd.DataFrame(noisy_categories_2d)], axis=1)
+            # X = pd.concat([X.reset_index(drop=True), pd.DataFrame(noisy_categories_2d)], axis=1)
+            
+            # X = [['age','workclass','fnlwgt','edu','marital-status','occupation','relationship','race','sex','capital-gain','capital-loss','hours-per-week','native-country']]
+            # X = X.sample(frac=1, axis=1)
+            #[FARAZ]
+            
             N, dim = X.shape
                        
             #add 6 more random value columns to the dataset
@@ -107,6 +140,10 @@ def main(args):
                  np.ones(len(attribute_split_array)).astype(int) * \
                  int(dim/organization_num)
             print(attribute_split_array.shape)
+            print('attribute_split_array: ', attribute_split_array)
+            # attribute_split_array[-1] = attribute_split_array[-1] - 2
+            # attribute_split_array[-2] = attribute_split_array[-2] + 3
+            # attribute_split_array[-3] = attribute_split_array[-3] 
              # correct the attribute split scheme if the total attribute number is larger than the actual attribute number
             if np.sum(attribute_split_array) > dim:
                 print('unknown error in attribute splitting!')
@@ -267,7 +304,7 @@ def main(args):
         top_model = torch_top_model(sum(organization_output_dim), top_hidden_units, top_output_dim)
 
         # define the neural network optimizer
-        optimizer = torch.optim.Adam(top_model.parameters(), lr=0.002)
+        optimizer = torch.optim.Adam(top_model.parameters(), lr=0.01)
         
         optimizer_organization_list = []
         for organization_idx in range(organization_num):
@@ -290,6 +327,7 @@ def main(args):
             batch_idxs_list = batch_split(len(X_train_vertical_FL[0]), args.batch_size, args.batch_type)
             
             for batch_idxs in batch_idxs_list:
+                token_consumption(avaialble_tokens, organization_tokens)
                 optimizer.zero_grad()
                 
                 for organization_idx in range(organization_num):
@@ -310,7 +348,10 @@ def main(args):
                     
                 outputs = top_model(organization_outputs_cat)
                 # logits = torch.sigmoid(outputs)
-                logits = torch.reshape(outputs, shape=[len(outputs)])
+                # logits = torch.reshape(outputs, shape=[len(outputs)])
+                # print('outputs: ',outputs)
+                # print('outputs[1, :]: ',outputs[:, 1])
+                logits = outputs[:, 1]
                 # print('logits: ',logits)
                 # print('y_train[batch_idxs]: ',y_train[batch_idxs])
                 loss = criterion(logits, y_train[batch_idxs]) 
@@ -322,7 +363,6 @@ def main(args):
                     optimizer_organization_list[organization_idx].step()
    
             # let the program report the simulation progress
-            
             if (i+1)%1 == 0:
                 organization_outputs_for_test = {}
                 feature_mask_tensor = None
@@ -343,29 +383,49 @@ def main(args):
                         # print('organization outputs shape: ', organization_outputs_for_test[organization_idx].shape)
                         
                         # print('organization outputs shape cat: ', organization_outputs_for_test_cat.shape)
-                    
+                
+                ########################################################
                 outputs = top_model(organization_outputs_for_test_cat)
-                # print('outputs shape: ', outputs)
+                print('organization_outputs_for_test_cat shape: ', organization_outputs_for_test_cat.shape)
+                print('outputs shape: ', outputs.shape)
+                print('outputs: ', outputs)
+                print('y_test shape: ', y_test.shape)
+                print('y_test: ', y_test)
                 # log_probs = torch.sigmoid(outputs)
-                log_probs = torch.reshape(outputs, shape=[len(outputs)])
-                
+                log_probs = outputs[:, 1]
+                print('log_probs shape: ', log_probs.shape)
+                print('log_probs: ', log_probs)
                 auc = roc_auc_score(y_test, log_probs.data)
+                accuracy = accuracy_score(y_test, log_probs.data.round())
                 
                 
-                print('For the {0}-th epoch, train loss: {1}, test auc: {2}'.format(i+1, loss.detach().numpy(), auc))
+                # print('For the {0}-th epoch, train loss: {1}, test auc: {2}'.format(i+1, loss.detach().numpy(), auc))
+                print('epoch: {0}, train loss: {1}, test auc: {2} test acc: {3}'.format(i+1, loss.detach().numpy(), auc, accuracy))
                 
                 test_epoch_array.append(i+1)
                 loss_array.append(loss.detach().numpy())
                 auc_array.append(auc)
+                ground_truth = y_test.unsqueeze(1)
                 
+                #[FARAZ]
                 contribution_method = 'ig'
                 
+                # X_example = [organization_outputs_for_test_cat[i] for i in y_test.nonzero(as_tuple=True)[0]]
+                # filter out corresponding values of organization_outputs_for_test_cat where y_test==1
+                X_example = []
+                for i in y_test.nonzero(as_tuple=True)[0]:
+                    # print(y_test[i])
+                    X_example.append(organization_outputs_for_test_cat[i])
+                    
                 if contribution_method == 'ig':
                     # create an instance of the attribution method
                     ig = IntegratedGradients(top_model)
-                    X_example = organization_outputs_for_test_cat
-                    attr, delta = ig.attribute(X_example, baselines=torch.zeros_like(X_example), return_convergence_delta=True, n_steps=10)
+                    X_example_tensor = torch.stack(X_example)
+                    print('X_example shape: ', len(X_example))
+                    # baselines=torch.zeros_like(X_example_tensor),
+                    attr, delta = ig.attribute(X_example_tensor, target=1, return_convergence_delta=True, n_steps=10)
                     
+                ########################################################
                 elif contribution_method == 'sv':
                     sv = ShapleyValueSampling(top_model)
                     X_example = organization_outputs_for_test_cat
@@ -390,7 +450,8 @@ def main(args):
                     ks = KernelShap(top_model)
                     X_example = organization_outputs_for_test_cat
                     attr = ks.attribute(X_example)
-                    
+                
+                
                 # print the attribution scores for each organization
                 
                 # print('attr shape: ', attr.shape)
@@ -406,12 +467,17 @@ def main(args):
                 for organization_idx in range(organization_num):
                     organization_attr = attr[:, organization_idx*organization_output_dim[organization_idx]:(organization_idx+1)*organization_output_dim[organization_idx]]
                     print('Organization ', organization_idx,' contribution: ', '{:.8f}'.format(organization_attr.mean()))
-                    temp_attr_lst.append(organization_attr.mean())
+                    temp_attr_lst.append(float(organization_attr.mean()))
+                    # print('HERE: ', type(temp_attr_lst), type(organization_attr.mean()))
                 attr_lst.append(temp_attr_lst)
-                print('type of attr_lst: ', type(attr_lst[0]))
+                sorted_org_idx = np.argsort(np.array(temp_attr_lst))
+                token_distribution(sorted_org_idx, avaialble_tokens, organization_tokens)
+                print('tokens per organization: ', organization_tokens)
                 #take mean along the first axis
                 # print('attributions across epochs: ', np.array([attr.detach().numpy() for attr in attr_lst]).mean(axis=1))
         print('attributions across epochs: ', attr_lst)
+        
+        #[FARAZ]
                     
                     
 
